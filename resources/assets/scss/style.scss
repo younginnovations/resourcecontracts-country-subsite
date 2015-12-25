@@ -323,6 +323,7 @@ $url_17: url(../../images/ic-delete.png);
   margin-bottom: 22px;
   border-bottom: 1px solid $color_mountain_mist_approx;
   border-bottom: 1px solid $color_mountain_mist_10_approx;
+  clear: both;
 }
 
 //original selectors
@@ -619,6 +620,8 @@ a {
   }
   span {
     display: block;
+    font-size: 15px;
+    line-height:15px;
     color: $color_cape_cod_70_approx;
   }
 }
@@ -1687,6 +1690,7 @@ footer {
     text-indent: inherit;
     a {
       display: block;
+      width: 100%;
       text-decoration: none;
       color: $color_mountain_mist_approx;
       font-size: 13px;
@@ -3032,6 +3036,7 @@ input.select2-search__field {
   height: 18px;
   display: inline-block!important;
   margin: 0 4px 4px 0;
+  vertical-align: top;
   img {
     width: 100%;
     height: 100%;

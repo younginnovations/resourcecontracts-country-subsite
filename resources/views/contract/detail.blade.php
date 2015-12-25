@@ -74,7 +74,7 @@ use Illuminate\Support\Facades\Lang;
                             <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <label for="">@lang('global.country')</label>
                                 @if($code = strtolower(_e($contract->metadata->country,'code')))
-                                    <span><a href="{{route('country.detail', ['key'=>$code])}}">{{ucfirst(_e($contract->metadata->country,'name'))}}</a>
+                                    <span><a href="#">{{ucfirst(_e($contract->metadata->country,'name'))}}</a>
                                         @if(env("CATEGORY")=="rc")
                                             @if(isset($contract->metadata->url->amla) && !empty($contract->metadata->url->amla))
                                                 <span class="amla-link">See <a href="{{$contract->metadata->url->amla}}"
