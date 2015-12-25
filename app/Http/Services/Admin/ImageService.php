@@ -37,7 +37,7 @@ class ImageService
      */
     function getName()
     {
-        $fileName = env('CATEGORY') . '-bg.jpg';
+        $fileName = 'olc' . '-bg.jpg';
 
         return $fileName;
     }

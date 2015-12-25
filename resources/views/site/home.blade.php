@@ -27,7 +27,7 @@ use \Illuminate\Support\Facades\Lang as Lang;
                 </div>
             </nav>
 
-            <div @if(env("CATEGORY")=="rc") class="col-lg-7 col-md-9" @else class="col-lg-8 col-md-9" @endif>
+            <div class="col-lg-8 col-md-9">
 
                 <div class="row row-top-content">
                     <div class="tagline">
