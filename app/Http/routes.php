@@ -8,8 +8,8 @@
 |
 */
 $app->get('/', ['as' => 'home', 'uses' => 'SiteController@home']);
-$app->get('/countries', ['as' => 'countries', 'uses' => 'CountryController@index']);
-$app->get('/countries/{key}', ['as' => 'country.detail', 'uses' => 'CountryController@detail']);
+//$app->get('/countries', ['as' => 'countries', 'uses' => 'CountryController@index']);
+//$app->get('/countries/{key}', ['as' => 'country.detail', 'uses' => 'CountryController@detail']);
 $app->get('/resources', ['as' => 'resources', 'uses' => 'ResourceController@index']);
 $app->get('/resource/{key}', ['as' => 'resource.detail', 'uses' => 'ResourceController@detail']);
 

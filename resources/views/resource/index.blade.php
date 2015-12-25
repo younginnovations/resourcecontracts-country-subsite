@@ -27,18 +27,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-2 pull-right">
-                    <div class="filter-resource-wrap">
-                        <div class="filter-label" data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container">@lang('global.filter_by_countries')<i></i></div>
-                    </div>
-                    <div class="side-collapse in">
-                        <ul id="countries">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="row side-collapse-container">
         <div id="resources" class="col-lg-12 country-list-wrap f32">
         </div>
