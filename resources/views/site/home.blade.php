@@ -21,13 +21,13 @@ use \Illuminate\Support\Facades\Lang as Lang;
                     <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse"
                           data-target-2=".sidebar-collapse-container" class="pull-left trigger">trigger</span>
 
-                    <a class="navbar-brand" href="{{url()}}"><span class="country-flag"><img src="{{getFlagUrl()}}{{env('COUNTRY')}}.png"/></span>{{ $countryName }}<span>Resource Contracts</span></a>
+                    <a class="navbar-brand" href="{{url()}}"><span class="country-flag"><img src="{{get_country('flag')}}"/></span>{{ $countryName }}<span>Resource Contracts</span></a>
 
 
                 </div>
             </nav>
 
-            <div @if(env("CATEGORY")=="rc") class="col-lg-7 col-md-9" @else class="col-lg-8 col-md-9" @endif>
+            <div class="col-lg-7 col-md-9">
 
                 <div class="row row-top-content">
                     <div class="tagline">
@@ -53,9 +53,8 @@ use \Illuminate\Support\Facades\Lang as Lang;
             <div class="country-wrap">
                 <div class="country-inner-wrap">
                     <p>@lang('global.contract_doc_from')</p>
-                    <span>@lang('country.'.@strtoupper(env('COUNTRY')))</span>
+                    <span>@lang('country.'.@strtoupper(env('COUNTRY')))</span> Contract Type
                 </div>
-                <a href="#" class="btn btn-view">@lang('global.view_all_countries')</a>
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 resource-wrapper">

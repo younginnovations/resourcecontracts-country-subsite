@@ -26,7 +26,7 @@ class ImageService
      */
     public function __construct(Request $request, Filesystem $filesystem)
     {
-        $this->request = $request;
+        $this->request    = $request;
         $this->filesystem = $filesystem;
     }
 
@@ -37,7 +37,8 @@ class ImageService
      */
     function getName()
     {
-        $fileName = env('CATEGORY') . '-bg.jpg';
+
+        $fileName = get_country('code').'.jpg';
 
         return $fileName;
     }
@@ -51,17 +52,17 @@ class ImageService
     function upload()
     {
         if ($this->request->hasFile('image') && $this->request->file('image')->isValid()) {
-            if (in_array(strtolower($this->request->file('image')->getClientOriginalExtension()) , ['jpg','jpeg'])) {
+            if (in_array(strtolower($this->request->file('image')->getClientOriginalExtension()), ['jpg', 'jpeg'])) {
                 $fileName = $this->getName();
                 list($width, $height) = getimagesize($this->request->file('image'));
 
                 if ($width >= $this->minWidth && $height >= $this->minHeight) {
                     $this->filesystem->disk('s3')->put($fileName, file_get_contents($this->request->file('image')), 'public');
-                }else{
-                    throw new \Exception(sprintf('Invalid image size (%sX%s px).',$width, $height));
+                } else {
+                    throw new \Exception(sprintf('Invalid image size (%sX%s px).', $width, $height));
                 }
 
-               return true;
+                return true;
             }
 
             throw new \Exception('Invalid file Format. Only jpeg format supported');
