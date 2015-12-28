@@ -1,12 +1,7 @@
 @extends('layout.app-blank')
 @section('css')
 <link rel="stylesheet" href="{{ url('css/annotation/annotator.css') }}">
-   @if(env("CATEGORY")=="rc")
-    <link href="{{url('css/rc-contract-view.css')}}" rel="stylesheet">
-   @endif
-  @if(env("CATEGORY")=="olc")
-      <link href="{{url('css/olc-contract-view.css')}}" rel="stylesheet">
-  @endif
+<link href="{{url('css/country-contract-view.css')}}" rel="stylesheet">
 <style>
 .metadata-ocid a span {
   display: inline !important;
@@ -36,7 +31,8 @@
   var email = '<?php echo env('CONTACT_MAIL'); ?>';
   var back_url = '{!!$back!!}';
   var app_url = '{{url()}}';
-  var category = '{{env('CATEGORY')=='rc' ? 'Resource' : 'Openland' }}';
+  var country = '{{get_country('name')}}';
+  var image_source = '{{get_country('flag')}}';
   var pdf_download_url = '{{route('contract.download.pdf',['id'=> $contract->metadata->open_contracting_id])}}';
   var contract = {!!json_encode($contract)!!};
   var contractTitle = contract.metadata.name;

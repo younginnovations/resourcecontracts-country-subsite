@@ -632,6 +632,9 @@
 
 .navbar-brand span:first-of-type {
     color: #217B46;
+    display: inline-block;
+    font-size: 19px;
+    font-family: "open-sans-bold";
 }
 
 .navbar-brand, .navbar-brand:hover {
@@ -840,4 +843,12 @@
 
 .fixed + .document-wrap {
     padding-top: 84px;
+}
+
+.navbar-brand > img {
+    width: 20px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 4px 4px 0;
 }
