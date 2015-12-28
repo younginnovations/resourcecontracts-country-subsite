@@ -27,15 +27,25 @@ function getFileSize($bytes)
     return $bytes;
 }
 
-function getFlagUrl($code = '')
+//function getFlagUrl($code = '')
+//{
+//    if ($code != '') {
+//        $code = strtolower($code) . '.png';
+//    }
+//
+//    return sprintf("https://raw.githubusercontent.com/younginnovations/country-flags/master/png250px/%s", $code);
+//}
+
+function get_country($key = null)
 {
-    if ($code != '') {
-        $code = strtolower($code) . '.png';
-    }
+    $countryCode     = env('COUNTRY');
+    $country         = [];
+    $country['code'] = strtolower($countryCode);
+    $country['name'] = trans('country.' . strtoupper($country['code']));
+    $country['flag'] = sprintf("https://raw.githubusercontent.com/younginnovations/country-flags/master/png250px/%s.png", $country['code']);
 
-    return sprintf("https://raw.githubusercontent.com/younginnovations/country-flags/master/png250px/%s", $code);
+    return array_key_exists($key, $country) ? $country[$key] : $country;
 }
-
 
 function _e($arrayOrObject, $key, $default = null, $echo = false)
 {
@@ -84,7 +94,7 @@ function searchInArray($arrays, $field, $value)
  * @param $order
  * @return string
  */
-function appendInUrl($route,$url, $sortby, $order)
+function appendInUrl($route, $url, $sortby, $order)
 {
     if (isset($url['sortby']) && $url['sortby'] == $sortby && isset($url['order']) && $url['order'] == "asc") {
         $url['order'] = "desc";
@@ -98,9 +108,18 @@ function appendInUrl($route,$url, $sortby, $order)
 
 }
 
+function get_country_name()
+{
+    $countryCode = env('COUNTRY');
+
+    $countryName = trans('country.' . strtoupper($countryCode));
+
+    return $countryName;
+}
+
 function show_arrow($order, $show = false)
 {
     if ($show) {
-            return '<i class="fa fa-black   fa-sort-' . $order . '"></i> ';
+        return '<i class="fa fa-black   fa-sort-' . $order . '"></i> ';
     }
 }

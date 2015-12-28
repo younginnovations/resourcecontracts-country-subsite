@@ -136,7 +136,7 @@ var MainApp = React.createClass({
                 <div className="title-head-wrap">
                     <div className="title-wrap">
                         <div className="navbar-header">
-                            <a className="navbar-brand" href={app_url} >{category}<span className="beta">Beta</span><span>Contracts</span></a>
+                            <a className="navbar-brand" href={app_url} ><img src= {image_source} />{country}<span>Resource Contracts</span></a>
 
                         </div>
                         <span>{htmlDecode(contractTitle)}</span>
@@ -145,7 +145,7 @@ var MainApp = React.createClass({
                         <TextSearchForm
                             style={this.getStyle(contractApp.isViewVisible("TextSearchForm"))} />
                         <NavigationView
-                            contractApp={contractApp} />
+                            contractApp={contractApp} /> 
                         <TextPaginationView
                             style={this.getStyle(contractApp.isViewVisible("TextPaginationView"))}
                             contractApp={contractApp}

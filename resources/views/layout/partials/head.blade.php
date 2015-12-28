@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" conten@if(env("CATEGORY")=="rc")
     <link rel="icon" href="{{url('images/favicon.ico')}}">
     <title>@lang('country.'.strtoupper(env('COUNTRY'))) Sub Site</title>
 

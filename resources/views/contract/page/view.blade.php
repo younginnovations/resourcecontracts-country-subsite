@@ -31,7 +31,8 @@
   var email = '<?php echo env('CONTACT_MAIL'); ?>';
   var back_url = '{!!$back!!}';
   var app_url = '{{url()}}';
-  var category = '{{env('CATEGORY')=='rc' ? 'Resource' : 'Openland' }}';
+  var country = '{{get_country('name')}}';
+  var image_source = '{{get_country('flag')}}';
   var pdf_download_url = '{{route('contract.download.pdf',['id'=> $contract->metadata->open_contracting_id])}}';
   var contract = {!!json_encode($contract)!!};
   var contractTitle = contract.metadata.name;

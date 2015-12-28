@@ -56582,7 +56582,7 @@ var MainApp = React.createClass({displayName: "MainApp",
                 React.createElement("div", {className: "title-head-wrap"}, 
                     React.createElement("div", {className: "title-wrap"}, 
                         React.createElement("div", {className: "navbar-header"}, 
-                            React.createElement("a", {className: "navbar-brand", href: app_url}, category, React.createElement("span", {className: "beta"}, "Beta"), React.createElement("span", null, "Contracts"))
+                            React.createElement("a", {className: "navbar-brand", href: app_url}, React.createElement("img", {src: image_source}), country, React.createElement("span", null, "Resource Contracts"))
 
                         ), 
                         React.createElement("span", null, htmlDecode(contractTitle))
