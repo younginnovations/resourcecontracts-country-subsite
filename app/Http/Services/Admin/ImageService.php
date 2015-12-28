@@ -37,7 +37,8 @@ class ImageService
      */
     function getName()
     {
-        $fileName = 'olc' . '-bg.jpg';
+
+        $fileName = get_country('code').'.jpg';
 
         return $fileName;
     }

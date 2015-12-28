@@ -27,15 +27,6 @@ function getFileSize($bytes)
     return $bytes;
 }
 
-//function getFlagUrl($code = '')
-//{
-//    if ($code != '') {
-//        $code = strtolower($code) . '.png';
-//    }
-//
-//    return sprintf("https://raw.githubusercontent.com/younginnovations/country-flags/master/png250px/%s", $code);
-//}
-
 function get_country($key = null)
 {
     $countryCode     = env('COUNTRY');
@@ -107,16 +98,6 @@ function appendInUrl($route, $url, $sortby, $order)
     return route($route, $url);
 
 }
-
-function get_country_name()
-{
-    $countryCode = env('COUNTRY');
-
-    $countryName = trans('country.' . strtoupper($countryCode));
-
-    return $countryName;
-}
-
 function show_arrow($order, $show = false)
 {
     if ($show) {
