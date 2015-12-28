@@ -1,0 +1,53 @@
+<?php
+$total_page  = ceil($total_item / $per_page);
+$no_of_pages = 6;
+$current_url = \Illuminate\Support\Facades\Input::url();
+$queries     = \Illuminate\Support\Facades\Input::get();
+$queries = array_except($queries,['page']);
+$current_url .= "?";
+$current_url .= (http_build_query($queries) == '') ? '' : http_build_query($queries) . '&';
+?>
+
+<?php if($total_page > 1 && $current_page <= $total_page): ?>
+    <div class="text-center">
+        <div class="pagination-wrapper">
+            <ul>
+                <?php if($current_page > 1): ?>
+                    <li class="num-text first"><a href="<?php echo e($current_url); ?>page=1"><?php echo app('translator')->get('global.first'); ?></a></li>
+                    <li class="num-text"><a href="<?php echo e($current_url); ?>page=<?php echo e($current_page > 1 ? $current_page - 1 : 1); ?>">
+                            <?php echo app('translator')->get('global.prev'); ?>
+                        </a></li>
+                <?php endif; ?>
+
+                <?php if(($current_page - $no_of_pages) > 0): ?>
+                    <li><a href="javascript:void();">...</a></li>
+                <?php endif; ?>
+
+                <?php for($i=$no_of_pages; $i>0; $i--): ?>
+                    <?php if(($current_page - $i) > 0): ?>
+                        <li><a href="<?php echo e($current_url); ?>page=<?php echo e($current_page - $i); ?>"><?php echo e($current_page - $i); ?></a></li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+
+                <li class="active"><a href="javascript:void()"><?php echo e($current_page); ?></a></li>
+
+                <?php for($i =1; $i<=$no_of_pages; $i++): ?>
+                    <?php if(($current_page + $i) <= $total_page): ?>
+                        <li><a href="<?php echo e($current_url); ?>page=<?php echo e($current_page + $i); ?>"><?php echo e($current_page + $i); ?></a></li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+
+                <?php if(($current_page + $no_of_pages) < $total_page): ?>
+                    <li><a href="javascript:void()">...</a></li>
+                <?php endif; ?>
+
+                <?php if($current_page < $total_page): ?>
+                    <li class="num-text next">
+                        <a href="<?php echo e($current_url); ?>page=<?php echo e($current_page < $total_page ? $current_page + 1 : $current_page); ?>"><?php echo app('translator')->get('global.next'); ?></a>
+                    </li>
+                    <li class="num-text"><a href="<?php echo e($current_url); ?>page=<?php echo e($total_page); ?>"><?php echo app('translator')->get('global.last'); ?></a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>

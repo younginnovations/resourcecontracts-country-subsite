@@ -1,0 +1,72 @@
+<?php
+use \Illuminate\Support\Facades\Lang as Lang;
+
+?>
+
+
+<?php $__env->startSection('css'); ?>
+    <?php if(!empty($image)): ?>
+        <style>
+            .row-top-wrap {
+                background-image: url(<?php echo e($image); ?>);
+            }
+        </style>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <div class="row row-top-wrap front-row-top-wrap">
+        <div class="homepage-wrapper">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse"
+                          data-target-2=".sidebar-collapse-container" class="pull-left trigger">trigger</span>
+
+                    <a class="navbar-brand" href="<?php echo e(url()); ?>"><span class="country-flag"><img src="<?php echo e(getFlagUrl()); ?><?php echo e(env('COUNTRY')); ?>.png"/></span><?php echo e($countryName); ?><span>Resource Contracts</span></a>
+
+
+                </div>
+            </nav>
+
+            <div class="col-lg-8 col-md-9">
+
+                <div class="row row-top-content">
+                    <div class="tagline">
+
+                        <?php echo app('translator')->get('global.a_directory_of'); ?> <span>Resource Contracts from <?php echo e($countryName); ?></span>
+
+                    </div>
+                    <form action="<?php echo e(route('search')); ?>" method="GET" class="contract-search-form">
+                        <div class="form-group">
+                            <input type="text" name="q" class="form-control pull-left"
+                                   placeholder="<?php echo app('translator')->get('global.search'); ?> <?php echo e($contracts); ?> <?php echo e(Lang::choice('global.contracts' , $contracts)); ?> <?php if(env('CATEGORY') != 'olc'): ?> <?php echo app('translator')->get('global.associated_documents'); ?> <?php endif; ?>">
+                            <button type="submit"
+                                    class="btn btn-search"><?php echo app('translator')->get('global.search'); ?></button>
+                        </div>
+                        <span class="advanced-search">Advanced Search</span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-sm-6 col-md-6 col-lg-6 country-wrapper">
+            <div class="country-wrap">
+                <div class="country-inner-wrap">
+                    <p><?php echo app('translator')->get('global.contract_doc_from'); ?></p>
+                    <span><?php echo app('translator')->get('country.'.@strtoupper(env('COUNTRY'))); ?></span>
+                </div>
+                <a href="#" class="btn btn-view"><?php echo app('translator')->get('global.view_all_countries'); ?></a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 resource-wrapper">
+            <div class="resource-wrap">
+                <div class="resource-inner-wrap">
+                    <p><?php echo app('translator')->get('global.contracts_related_to'); ?></p>
+                    <span><?php echo e(isset($resources) ? $resources : ''); ?></span> <?php echo app('translator')->get('global.resources'); ?>
+                </div>
+                <a href="<?php echo e(route('resources')); ?>" class="btn btn-view"><?php echo app('translator')->get('global.view_all_resources'); ?></a>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.app-full', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

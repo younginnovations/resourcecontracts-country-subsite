@@ -1,0 +1,77 @@
+<?php
+if (!isset($summary)) {
+    $api     = app('App\Http\Services\APIService');
+    $summary = $api->sortSummaryCountry();
+    $countryName = trans('country.' . strtoupper(env('COUNTRY')));
+}
+?>
+
+<div id="sidebar-wrapper" class="sidebar-collapse in">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+
+            <a class="navbar-brand" href="<?php echo e(url()); ?>"><?php echo e($countryName); ?><span>Resource Contracts</span></a>
+
+        </li>
+        <li class="contracts">
+            <a href="<?php echo e(url('contracts')); ?>">
+                <span><?php echo app('translator')->get('sidebar.all_contracts'); ?></span>
+
+                <small class="label pull-right"><?php echo e($summary->contract_count); ?></small>
+            </a>
+        </li>
+
+        <li class="resources">
+            <label><?php echo app('translator')->get('global.resources'); ?></label>
+            <ul>
+                <?php foreach(array_slice($summary->resource_summary,0,10,true) as $resource): ?>
+                    <li>
+                        <a href="<?php echo e(route('resource.detail', ['key'=>urlencode($resource->key)])); ?>">
+                            <span><?php echo app('translator')->get('resources.'.ucfirst($resource->key)); ?></span>
+                            <small class="label pull-right"><?php echo e($resource->doc_count); ?></small>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+                <?php if(count($summary->resource_summary)>10): ?>
+                    <li><a href="<?php echo e(route('resources')); ?>"><?php echo app('translator')->get('sidebar.view_all'); ?></a></li>
+                <?php endif; ?>
+            </ul>
+        </li>
+        <li class="year">
+            <label><?php echo app('translator')->get('global.year'); ?></label>
+            <ul>
+                <?php foreach(array_slice($summary->year_summary, 0, 10, true) as $year): ?>
+                    <li>
+                        <a href="<?php echo e(route('contracts')); ?>?year=<?php echo e($year->key); ?>">
+                            <span><?php echo e(trans($year->key)); ?></span>
+                            <small class="label pull-right"><?php echo e($year->doc_count); ?></small>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <?php if(count($summary->year_summary)>10): ?>
+                <ul id="year-more" style="display: none">
+                    <?php foreach(array_slice($summary->year_summary, 10, null, true) as $year): ?>
+                        <li>
+                            <a href="<?php echo e(route('contracts')); ?>?year=<?php echo e($year->key); ?>">
+                                <span><?php echo e($year->key); ?></span>
+                                <small class="label pull-right"><?php echo e($year->doc_count); ?></small>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+
+            <?php if(count($summary->year_summary)>10): ?>
+                <div><a href="#year-more" class="toggle-all"><?php echo app('translator')->get('global.more'); ?></a></div>
+            <?php endif; ?>
+        </li>
+
+    </ul>
+</div>
+<script>
+    var localization = [];
+    localization.more = "<?php echo app('translator')->get('global.more'); ?>";
+    localization.less = "<?php echo app('translator')->get('global.less'); ?>";
+</script>

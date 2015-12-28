@@ -1,0 +1,116 @@
+<?php
+
+$url = Request::all();
+$order = \Illuminate\Support\Facades\Input::get('order', '');
+$sortBy = \Illuminate\Support\Facades\Input::get('sortby', '');
+$path = Request::path();
+$path = explode('/', $path);
+$url['key'] = $path[1];
+$route = "country.detail";
+if ($path[0] == "resource") {
+    $route = "resource.detail";
+}
+
+
+?>
+<table class="table table-responsive table-contract">
+    <thead>
+    <th></th>
+    <th>
+        <a href="<?php echo e(appendInUrl($route,$url,"contract_name",$order)); ?>"><?php echo app('translator')->get('global.document'); ?><?php echo show_arrow($order, $sortBy=='contract_name'); ?></a>
+    </th>
+    <th></th>
+    <th width="10%"><a href="<?php echo e(appendInUrl($route,$url,"year",$order)); ?>"><?php echo app('translator')->get('global.year'); ?> <?php echo show_arrow($order, $sortBy=='year'); ?></a></th>
+
+    <th>
+        <a href="<?php echo e(appendInUrl($route,$url,"resource",$order)); ?>"><?php echo app('translator')->get('global.resource'); ?> <?php echo show_arrow($order, $sortBy=='resource'); ?></a>
+    </th>
+    <th><a href="<?php echo e(appendInUrl($route,$url,"contract_type",$order)); ?>"><?php echo app('translator')->get('global.contract_type'); ?><?php echo show_arrow($order, $sortBy=='contract_type'); ?></a></th>
+    </thead>
+    <tbody>
+    <?php $__empty_1 = true; foreach($contracts->results as $contract): $__empty_1 = false; ?>
+        <?php
+        $api = app('App\Http\Services\APIService');
+        $annotations = $api->getAnnotations($contract->id);
+
+        ?>
+        <tr>
+            <td></td>
+            <td>
+                <a href="<?php echo e(route('contract.detail',['id'=>$contract->open_contracting_id ])); ?>">
+                    <?php echo e(isset($contract->name) ? $contract->name : ''); ?>
+
+                </a>
+                <?php if($annotations->total>0): ?>
+                    <div class="annotate-text"> Annotated</div>
+                <?php endif; ?>
+
+                <p class="country_name">- <?php echo e(trans('country.'.strtoupper($contract->country_code))); ?></p>
+            </td>
+
+                <td>
+                    <div class="contract-info-section">
+                        <div class="download-main-wrap">
+                            <div class="download-wrap">
+
+                                <span>Download</span>
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo e(route('contract.download.pdf',['id'=> $contract->open_contracting_id])); ?>" >Pdf</a></li>
+                                <?php if(env('CATEGORY')!= 'olc' && $contract->is_ocr_reviewed == 1): ?>
+                                <li><a href="<?php echo e(route('contract.download',['id'=> $contract->open_contracting_id])); ?>" >Word File</a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+
+
+
+
+            <td class="contract-date"><?php echo e($contract->year_signed); ?></td>
+
+            <td>
+
+                <?php
+
+                if (isset($url['sortby']) && $url['sortby'] == "resource") {
+                    if ($url['order'] == "asc") {
+                        asort($contract->resource);
+                    }
+                    if ($url['order'] == "desc") {
+                        rsort($contract->resource);
+                    }
+                }
+                ?>
+                <ul>
+                    <?php foreach($contract->resource as $resource): ?>
+                        <?php if(!empty($resource)): ?>
+                            <li><?php echo e($resource); ?></li>
+                        <?php else: ?>
+                            -
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </td>
+            <td>
+
+               <?php if(is_array($contract->contract_type)): ?>
+                    <?php foreach($contract->contract_type as $contracttype): ?>
+                        <?php if(!empty($contracttype)): ?>
+                            <li><?php echo e($contracttype); ?></li>
+                        <?php else: ?>
+                            -
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; if ($__empty_1): ?>
+        <tr>
+            <td colspan="2"><?php echo e('Contract result not found.'); ?></td>
+        </tr>
+    <?php endif; ?>
+    </tbody>
+</table>

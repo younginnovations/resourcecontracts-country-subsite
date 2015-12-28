@@ -1,0 +1,18 @@
+<?php
+$countryName = trans('country.' . strtoupper(env('COUNTRY')));
+?>
+<div class="row">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <span data-toggle="collapse-sidebar" data-target=".sidebar-collapse" data-target-2=".sidebar-collapse-container" class="pull-left trigger">trigger</span>
+
+            <a class="navbar-brand" href="<?php echo e(url()); ?>"><span class="country-flag"><img src="<?php echo e(getFlagUrl()); ?><?php echo e(env('COUNTRY')); ?>.png"/></span><?php echo e($countryName); ?><span>Resource Contracts</span></a>
+
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-10 navbar-right">
+            <?php if(!isset($show_advance)): ?>
+                <?php echo $__env->make('layout.partials.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
+        </div>
+    </nav>
+</div>
