@@ -1,12 +1,7 @@
 @extends('layout.app-blank')
 @section('css')
 <link rel="stylesheet" href="{{ url('css/annotation/annotator.css') }}">
-   @if(env("CATEGORY")=="rc")
-    <link href="{{url('css/rc-contract-view.css')}}" rel="stylesheet">
-   @endif
-  @if(env("CATEGORY")=="olc")
-      <link href="{{url('css/olc-contract-view.css')}}" rel="stylesheet">
-  @endif
+<link href="{{url('css/country-contract-view.css')}}" rel="stylesheet">
 <style>
 .metadata-ocid a span {
   display: inline !important;

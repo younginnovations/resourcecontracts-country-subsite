@@ -9,7 +9,7 @@
 
     <link href="{{url('css/main.min.css')}}" rel="stylesheet">
 
-    <link href="{{url('css/olc-style.css')}}" rel="stylesheet">
+    <link href="{{url('css/country-style.css')}}" rel="stylesheet">
 
     @yield('css')
     <!--[if lt IE 9]>

@@ -53,9 +53,8 @@ use \Illuminate\Support\Facades\Lang as Lang;
             <div class="country-wrap">
                 <div class="country-inner-wrap">
                     <p>@lang('global.contract_doc_from')</p>
-                    <span>@lang('country.'.@strtoupper(env('COUNTRY')))</span>
+                    <span>@lang('country.'.@strtoupper(env('COUNTRY')))</span> Contract Type
                 </div>
-                <a href="#" class="btn btn-view">@lang('global.view_all_countries')</a>
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 resource-wrapper">
