@@ -60,14 +60,14 @@ class APIService
     public function allContracts(array $filter = [])
     {
         $default = [
-            'country_code'  => env('COUNTRY'),
-            'year'     => '',
-            'resource' => '',
-            'per_page' => 25,
-            'from'     => 0,
-            'sort_by'  => '',
-            'order'    => '',
-            'download' => false
+            'country_code' => env('COUNTRY'),
+            'year'         => '',
+            'resource'     => '',
+            'per_page'     => 25,
+            'from'         => 0,
+            'sort_by'      => '',
+            'order'        => '',
+            'download'     => false
         ];
 
         $filter = array_merge($default, $filter);
@@ -404,8 +404,8 @@ class APIService
     protected function downloadAPI($resource, array $query = [], $array = false)
     {
         try {
-            $request           = new Request('GET', $this->apiURL($resource));
-            $query['category'] = $this->category;
+            $request               = new Request('GET', $this->apiURL($resource));
+            $query['country_code'] = get_country('code');
             $request->setQuery($query);
             $response = $this->client->send($request);
             $data     = $response->getBody()->getContents();
