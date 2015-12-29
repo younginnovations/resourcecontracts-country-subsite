@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Lang;
     </div>
     <div class="row">
         <div class="col-lg-12 country-detail-wrapper">
-            <div class="col-md-8 col-lg-8">
+            <div class="col-md-12 col-lg-12">
                 <div class="panel panel-default panel-wrap country-contract-wrap">
                     <?php
                     $params = Request::all();
@@ -65,21 +65,7 @@ use Illuminate\Support\Facades\Lang;
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="panel panel-default panel-wrap country-resource-wrap">
-                    <div class="panel-heading">@lang('global.countries')</div>
-                    <div class="panel-body">
-                        <ul>
-                        @foreach($countries as $country)
-                            <li>
-                                <span><a href="{{route("search")}}?q=&resource%5B%5D={{urlencode($resource)}}&country%5B%5D={{urlencode($country->code)}}">{{trans('country')[strtoupper(ucfirst($country->code))]}}</a></span>
-                                <span class="count pull-right">{{$country->contract}}</span>
-                            </li>
-                        @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 @stop

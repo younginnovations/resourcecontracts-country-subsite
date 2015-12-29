@@ -1,5 +1,6 @@
 .download-csv {
-  border: 1px solid rgba(33, 123, 73, 0.2) !important; }
+  border: 1px solid rgba(33, 123, 73, 0.2) !important;
+  right: 280px; }
 
 .row-top-content {
   background: rgba(64, 64, 64, 0.8);
@@ -751,7 +752,7 @@ footer {
 .country-contract-wrap .download-csv {
   left: auto;
   bottom: auto;
-  right: 20px;
+  right: 280px;
   top: -24px; }
 
 .btn-filter-search {

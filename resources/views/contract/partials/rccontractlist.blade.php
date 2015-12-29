@@ -55,16 +55,14 @@ if ($path[0] == "resource") {
                             <span>Download</span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('contract.download.pdf',['id'=> $contract->open_contracting_id])}}" >Pdf</a></li>
-                            @if(env('CATEGORY')!= 'olc' && $contract->is_ocr_reviewed == 1)
-                                <li><a href="{{route('contract.download',['id'=> $contract->open_contracting_id])}}" >Word File</a></li>
+                            <li><a href="{{route('contract.download.pdf',['id'=> $contract->open_contracting_id])}}">Pdf</a></li>
+                            @if(in_array('rc',$contract->category) && $contract->is_ocr_reviewed == 1)
+                            <li><a href="{{route('contract.download',['id'=> $contract->open_contracting_id])}}">Word File</a></li>
                             @endif
                         </ul>
                     </div>
                 </div>
             </td>
-
-
 
 
             <td class="contract-date">{{$contract->year_signed}}</td>
