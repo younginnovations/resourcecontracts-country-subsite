@@ -52,8 +52,8 @@ use \Illuminate\Support\Facades\Lang as Lang;
         <div class="col-sm-6 col-md-6 col-lg-6 country-wrapper">
             <div class="country-wrap">
                 <div class="country-inner-wrap">
-                    <p>@lang('global.contract_doc_from')</p>
-                    <span>@lang('country.'.@strtoupper(env('COUNTRY')))</span> Contract Type
+                    {{--<p>@lang('global.contract_doc_from')</p>--}}
+                    {{--<span>{{$countryName}}</span> Contract Type--}}
                 </div>
             </div>
         </div>
