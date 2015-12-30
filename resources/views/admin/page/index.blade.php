@@ -7,31 +7,31 @@
         </div>
         <div class="panel-body">
             <table class="table">
-                    <thead>
+                <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th>Page Title</th>
+                    <th>Slug</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($pages as   $key => $page)
                     <tr>
-                        <th>ID</th>
-                        <th>Page Title</th>
-                        <th>Slug</th>
-                        <th>Action</th>
+                        <td>{{$key +1 }}</td>
+                        <td>{{$page->title->en}}</td>
+                        <td>{{$page->slug}}</td>
+                        <td>
+                            <a target="_blank" class="btn btn-success" href="{{url($page->slug)}}">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-primary" href="{{route('admin.page.edit', ['slug'=>$page->slug])}}">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pages as   $page)
-                            <tr>
-                                <td>{{$page->id}}</td>
-                                <td>{{$page->title->en}}</td>
-                                <td>{{$page->slug}}</td>
-                                <td>
-                                    <a target="_blank" class="btn btn-success" href="{{url($page->slug)}}">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a class="btn btn-primary" href="{{route('admin.page.update', ['id'=>$page->id])}}">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                @endforeach
+                </tbody>
             </table>
         </div>
     </div>

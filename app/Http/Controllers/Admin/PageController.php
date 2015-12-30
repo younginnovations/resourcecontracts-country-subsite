@@ -54,8 +54,10 @@ class PageController extends BaseController
     {
         $input = [
             'title'   => $request->input('title'),
-            'content' => $request->input('content')
+            'content' => $request->input('content'),
+
         ];
+
 
         if ($this->page->create($input)) {
             return redirect()->route('admin.page')->withSuccess('Page successfully created.');
@@ -67,12 +69,13 @@ class PageController extends BaseController
     /**
      * Edit page
      *
-     * @param $id
+     * @param $slug
      * @return \Illuminate\View\View
+     * @internal param $id
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $page = $this->page->find($id);
+        $page = $this->page->find($slug)->Country()->first();
 
         if (!$page) {
             abort(404);
@@ -85,18 +88,19 @@ class PageController extends BaseController
      * Update Page
      *
      * @param Request $request
+     * @param         $slug
      * @return bool
      * @internal param $page
-     *
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         $input = [
             'title'   => $request->input('title'),
             'content' => $request->input('content')
         ];
 
-        if ($this->page->save($id, $input)) {
+
+        if ($this->page->save($slug, $input)) {
             return redirect()->route('admin.page')->withSuccess('Page successfully updated.');
         }
 
