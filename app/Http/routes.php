@@ -8,8 +8,6 @@
 |
 */
 $app->get('/', ['as' => 'home', 'uses' => 'SiteController@home']);
-//$app->get('/countries', ['as' => 'countries', 'uses' => 'CountryController@index']);
-//$app->get('/countries/{key}', ['as' => 'country.detail', 'uses' => 'CountryController@detail']);
 $app->get('/resources', ['as' => 'resources', 'uses' => 'ResourceController@index']);
 $app->get('/resource/{key}', ['as' => 'resource.detail', 'uses' => 'ResourceController@detail']);
 
@@ -49,7 +47,6 @@ $app->get('publish-contracts', ['as' => 'publish-contracts', 'uses' => 'PageCont
 $app->get('/search', ['as' => 'search', 'uses' => 'FilterController@index']);
 $app->get('/filter', ['as' => 'filter', 'uses' => 'SiteController@filter']);
 
-
 /*
 |--------------------------------------------------------------------------
 | CMS Routes
@@ -67,12 +64,11 @@ $app->get('admin/image', ['as' => 'admin.image', 'uses' => 'Admin\ImageControlle
 $app->post('admin/image/upload', ['as' => 'admin.image.upload', 'uses' => 'Admin\ImageController@upload']);
 
 
-
 $app->get('admin/page', ['as' => 'admin.page', 'uses' => 'Admin\PageController@index']);
 $app->get('admin/page/create', ['as' => 'admin.page.create', 'uses' => 'Admin\PageController@create']);
 $app->post('admin/page/store', ['as' => 'admin.page.store', 'uses' => 'Admin\PageController@store']);
-$app->get('admin/page/{id}', ['as' => 'admin.page.edit', 'uses' => 'Admin\PageController@edit']);
-$app->post('admin/page/{id}', ['as' => 'admin.page.update', 'uses' => 'Admin\PageController@update']);
+$app->get('admin/page/{slug}', ['as' => 'admin.page.edit', 'uses' => 'Admin\PageController@edit']);
+$app->post('admin/page/{slug}', ['as' => 'admin.page.update', 'uses' => 'Admin\PageController@update']);
 /*
 |--------------------------------------------------------------------------
 | API Routes
