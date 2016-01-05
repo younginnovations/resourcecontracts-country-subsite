@@ -63,7 +63,7 @@ class PageController extends BaseController
             return redirect()->route('admin.page')->withSuccess('Page successfully created.');
         }
 
-        return redirect()->route('admin.page')->withError('Page could not be created.');
+        return redirect()->route('admin.page')->withError('Sorry! Page you are trying to create already exists');
     }
 
     /**
