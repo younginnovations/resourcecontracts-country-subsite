@@ -44,7 +44,6 @@ if ($path[0] == "resource") {
                     <div class="annotate-text"> Annotated</div>
                 @endif
 
-                <p class="country_name">- {{trans('country.'.strtoupper($contract->country_code))}}</p>
             </td>
 
             <td>
