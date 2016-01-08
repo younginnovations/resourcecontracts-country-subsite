@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
         $country = get_country('code');
 
+
         $pages = [
             ['title' => ['en' => 'About', 'fr' => 'Fr About'], 'slug' => 'about', 'content' => ['en' => 'About content for country ' . $country, 'fr' => 'Fr About Content'], 'country' => $country],
             [
@@ -46,8 +47,14 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
+
         foreach ($pages as $page) {
-            Page::create($page);
+
+            $validate = Page::where('slug', $page['slug'])->country()->count();
+
+            if ($validate == 0) {
+                Page::create($page);
+            }
         }
     }
 
