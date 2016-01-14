@@ -211,7 +211,6 @@
 .sidebar-nav > .sidebar-brand a, .sidebar-nav > .sidebar-brand a:hover {
   color: #fff;
   text-transform: uppercase;
-  background: url(../../images/olc/ic-title-bg.png) no-repeat 0 0/cover;
   font-size: 19px;
   padding: 40px 32px; }
 
@@ -432,12 +431,15 @@ a {
   line-height: 13px;
   color: rgba(64, 64, 64, 0.7); }
 
-.sidebar-brand .beta {
-  top: 35px;
-  right: -60px; }
-
-.sidebar-brand a {
-  position: relative; }
+.sidebar-brand {
+  background: rgba(57, 204, 203, 0.6) url(../images/ic-title-bg.png) no-repeat 0 0/cover !important;
+  width: 280px;
+  height: 124px !important; }
+  .sidebar-brand .beta {
+    top: 35px;
+    right: -60px; }
+  .sidebar-brand a {
+    position: relative; }
 
 .trigger {
   background: url(../../images/ic-sprite.png) no-repeat 0 -47px;
@@ -1306,7 +1308,7 @@ footer {
       list-style: none;
       padding: 0; }
     .sidebar-nav li.contracts a {
-      background: url(../../images/olc/ic-folder.png) no-repeat 32px;
+      background: url(../../images/ic-folder.png) no-repeat 32px;
       padding: 12px 20px 12px 58px; }
     .sidebar-nav li > .load-more > a {
       color: #fff;
@@ -2018,7 +2020,8 @@ nav.navbar {
   font-size: 19px;
   color: #fff;
   padding: 22px 20px 22px 22px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  border-right: 0; }
 
 .not-front > .row {
   margin: 0; }

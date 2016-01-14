@@ -2,7 +2,7 @@ a,a:hover,a:focus.navbar-brand, .navbar-brand:hover,
 .breadcrumb-wrapper ul li a,.download-csv a,
 .pagination > li > a,.pagination > li > a:focus,.pagination > li > a:hover,
 .pagination > li > span:focus,.pagination > li > span:hover  {
-  color: #217B46;
+  color: #39CCCB;
 }
 
 .btn-search, .btn-search:hover, .btn-search:focus,
@@ -11,21 +11,21 @@ a,a:hover,a:focus.navbar-brand, .navbar-brand:hover,
 a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
 .pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
-  background: #217B46;
+  background: #39CCCB;
 }
 
 .pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
-  border-color: #1C7041;
+  border-color: #2AAAA9;
 }
 
 .btn-search, .btn-search:hover, .btn-search:focus,
 .download-csv {
-  border: 1px solid #217B46;
+  border: 1px solid #2AAAA9;
 }
 
 a:hover,a:focus {
-  color: #1C7041;
+  color: #2AAAA9;
 }
 
 .btn-search:hover,
@@ -37,11 +37,21 @@ a:hover,a:focus {
 .pagination > .active > a:focus,
 .pagination > .active > a:hover,
 .pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
-  background: #1C7041;
+  background: #2AAAA9;
 }
 
 .pagination > .active > a,.pagination > .active > a:focus,
 .pagination > .active > a:hover,
 .pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
-  border-color: #1C7041;
+  border-color: #2AAAA9;
+}
+
+#sidebar-wrapper {
+  background-image: -webkit-linear-gradient(351deg, #0D2424 1%, #206362 100%);
+  background-image: -o-linear-gradient(351deg, #0D2424 1%, #206362 100%);
+  background-image: linear-gradient(81deg, #0D2424 1%, #206362 100%);
+}
+
+.sidebar-brand {
+  background-blend-mode: multiply;
 }
