@@ -1,0 +1,47 @@
+a,a:hover,a:focus.navbar-brand, .navbar-brand:hover,
+.breadcrumb-wrapper ul li a,.download-csv a,
+.pagination > li > a,.pagination > li > a:focus,.pagination > li > a:hover,
+.pagination > li > span:focus,.pagination > li > span:hover  {
+  color: #217B46;
+}
+
+.btn-search, .btn-search:hover, .btn-search:focus,
+.btn-form-search, .btn-compare,
+.btn-login-block, .btn-login-block:hover, .btn-login-block:hover:focus,
+a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
+.pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
+.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
+  background: #217B46;
+}
+
+.pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
+.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
+  border-color: #1C7041;
+}
+
+.btn-search, .btn-search:hover, .btn-search:focus,
+.download-csv {
+  border: 1px solid #217B46;
+}
+
+a:hover,a:focus {
+  color: #1C7041;
+}
+
+.btn-search:hover,
+.btn-compare:hover,
+.btn-compare:focus,
+.action-links ul li a:hover,
+.btn-login-block:hover,.btn-login-block:focus,
+.contract-back:hover,.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
+  background: #1C7041;
+}
+
+.pagination > .active > a,.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
+  border-color: #1C7041;
+}
