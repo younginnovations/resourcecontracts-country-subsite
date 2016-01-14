@@ -83,6 +83,7 @@ $url_13: url(../../images/ic-close.png);
 $url_15: url(../../images/paper-bg.png);
 $url_16: url(../../images/ic-amla.png);
 $url_17: url(../../images/ic-delete.png);
+$url_18: url(../images/ic-title-bg.png);
 
 //gradients
 
@@ -312,7 +313,6 @@ $url_17: url(../../images/ic-delete.png);
 %extend_21 {
   color: $white;
   text-transform: uppercase;
-  background: $url_9 no-repeat 0 0/cover;
   font-size: 19px;
   padding: 40px 32px;
 }
@@ -626,6 +626,9 @@ a {
   }
 }
 .sidebar-brand {
+    background: rgba(57,204,203,0.6) $url_18 no-repeat 0 0/cover!important;
+    width: 280px;
+    height: 124px!important;
   .beta {
     @extend %extend_4;
     top: 35px;
@@ -633,6 +636,7 @@ a {
   }
   a {
     position: relative;
+    color: $color_white!important;
   }
 }
 .trigger {
@@ -2709,6 +2713,7 @@ nav.navbar {
   color: $white;
   padding: 22px 20px 22px 22px;
   margin-bottom: 30px;
+  border-right: 0;
 }
 .not-front > .row {
   margin: 0;
