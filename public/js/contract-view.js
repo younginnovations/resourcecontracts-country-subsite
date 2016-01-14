@@ -55290,8 +55290,8 @@ var MetadataToggleButton = React.createClass({displayName: "MetadataToggleButton
     render: function () {
         return (
             React.createElement("div", {className: "metadata-toggle-button pull-right metadata-shown"}, 
-                React.createElement("span", {onClick: this.handleClick}, "Meta")
-            )
+            React.createElement("span", {onClick: this.handleClick}, "Meta")
+        )
         );
     }
 });
@@ -55354,68 +55354,68 @@ var MetadataView = React.createClass({displayName: "MetadataView",
             });
 
             if(this.props.metadata.get("note") != "") {
-                    var note = React.createElement("div", {className: "metadata-info"},
+                var note = React.createElement("div", {className: "metadata-info"},
                     React.createElement("span", null, "Note"),
                     React.createElement("p", null, this.props.metadata.get("note"))
                 );
             }
             return (
                 React.createElement("div", {id: "metadata"}, 
-                    note, 
-                    React.createElement("div", {className: "metadata-view"}, 
-                        React.createElement("div", null, 
-                            lang.metadata, 
-                            React.createElement("div", {className: "metadata-view-footer pull-right"}, 
-                                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
-                            )
-                        ), 
+                note, 
+                React.createElement("div", {className: "metadata-view"}, 
+                React.createElement("div", null, 
+                lang.metadata, 
+        React.createElement("div", {className: "metadata-view-footer pull-right"}, 
+                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
+            )
+            ), 
 
-                        React.createElement("div", {className: "metadata-country"}, 
-                            React.createElement("span", null, lang.country), 
-                            React.createElement("span", null, 
-                                React.createElement("a", {href: countryLink}, this.props.metadata.get("country").name)
-                            )
-                        ), 
-                        React.createElement("div", {className: "metadata-signature-year"}, 
-                            React.createElement("span", null, lang.signature_year), 
-                            React.createElement("span", null, 
-                                React.createElement("a", {href: sigYearLink}, this.props.metadata.get("year_signed") || "-")
-                            )
-                        ), 
-                        React.createElement("div", {className: "metadata-resource"}, 
-                            React.createElement("span", null, lang.resource), 
-                            React.createElement("span", null, resources)
-                        ), 
-                        React.createElement("div", {className: "metadata-type-contract"}, 
-                            React.createElement("span", null, lang.type_contract), 
-                            React.createElement("span", null, 
-                               contractType
-                            )
-                        ), 
-                        React.createElement("div", {className: "metadata-ocid"}, 
-                            React.createElement("span", null, lang.open_contracting_id), 
-                            React.createElement("span", null, this.props.metadata.get("open_contracting_id"))
-                        ), 
-                        React.createElement("div", {className: "metadata-ocid"}, 
-                            React.createElement("span", null, lang.disclosure_mode), 
-                            React.createElement("span", null, this.props.metadata.get("publisher_type") || "-")
-                        ), 
+            React.createElement("div", {className: "metadata-country"}, 
+                React.createElement("span", null, lang.country), 
+            React.createElement("span", null, 
+            React.createElement("a", {href: countryLink}, this.props.metadata.get("country").name)
+            )
+            ), 
+            React.createElement("div", {className: "metadata-signature-year"}, 
+                React.createElement("span", null, lang.signature_year), 
+            React.createElement("span", null, 
+            React.createElement("a", {href: sigYearLink}, this.props.metadata.get("year_signed") || "-")
+            )
+            ), 
+            React.createElement("div", {className: "metadata-resource"}, 
+                React.createElement("span", null, lang.resource), 
+            React.createElement("span", null, resources)
+            ), 
+            React.createElement("div", {className: "metadata-type-contract"}, 
+                React.createElement("span", null, lang.type_contract), 
+            React.createElement("span", null, 
+            contractType
+            )
+            ), 
+            React.createElement("div", {className: "metadata-ocid"}, 
+                React.createElement("span", null, lang.open_contracting_id), 
+            React.createElement("span", null, this.props.metadata.get("open_contracting_id"))
+            ), 
+            React.createElement("div", {className: "metadata-ocid"}, 
+                React.createElement("span", null, lang.disclosure_mode), 
+            React.createElement("span", null, this.props.metadata.get("publisher_type") || "-")
+            ), 
 
-                        React.createElement(LandMatrixView, {
-                            metadata: this.props.metadata})
-                    )
-                )
-            );
+            React.createElement(LandMatrixView, {
+            metadata: this.props.metadata})
+        )
+            )
+        );
         } else {
             return (
                 React.createElement("div", {className: "metadata-view"}, 
-                    React.createElement("div", null, lang.metadata), 
-                    React.createElement("span", null, lang.loading), 
-                    React.createElement("div", {className: "metadata-view-footer"}, 
-                        React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
-                    )
-                )
-            );
+                React.createElement("div", null, lang.metadata), 
+            React.createElement("span", null, lang.loading), 
+            React.createElement("div", {className: "metadata-view-footer"}, 
+                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
+            )
+            )
+        );
         }
 
     }
@@ -55438,10 +55438,10 @@ var LandMatrixView = React.createClass({displayName: "LandMatrixView",
         if (this.props.metadata.get("category")[0] === 'olc') {
             return (
                 React.createElement("div", {className: "metadata-ocid"}, 
-                    React.createElement("span", null, "Land Matrix ID: "), 
-                    React.createElement("a", {target: "_blank", href: this.props.metadata.get('matrix_page')}, id)
-                )
-            );
+                React.createElement("span", null, "Land Matrix ID: "), 
+            React.createElement("a", {target: "_blank", href: this.props.metadata.get('matrix_page')}, id)
+            )
+        );
         }
         else {
             return (React.createElement("div", null));
@@ -55473,26 +55473,28 @@ var RelatedDocumentsView = React.createClass({displayName: "RelatedDocumentsView
         if (this.props.metadata.get("parent")) {
             parentContracts = this.props.metadata.get("parent").map(function (doc) {
                 var docUrl = app_url + "/contract/" + doc.open_contracting_id;
-                if (doc.is_published === 1) {
+                if (doc.is_published) {
                     return (
                         React.createElement("span", null, 
-                            React.createElement("a", {href: docUrl}, doc._name)
-                        )
-                    );
+                        React.createElement("a", {href: docUrl}, doc.name)
+                    )
+                );
                 }
             });
             var MaxAllowed = 3;
-            var maxDocs = (this.props.metadata.get("supporting").length < MaxAllowed) ? this.props.metadata.get("supporting").length : MaxAllowed;
+            var maxDocs = (this.props.metadata.get("associated").length < MaxAllowed) ? this.props.metadata.get("associated").length : MaxAllowed;
             for (var i = 0; i < maxDocs; i++) {
-                var doc = this.props.metadata.get("supporting")[i];
-                if (doc.is_published === 1) {
+                var doc = this.props.metadata.get("associated")[i];
+
+
+                if (doc.is_published) {
                     var docUrl = app_url + "/contract/" + doc.open_contracting_id;
                     supportingContracts.push(React.createElement("span", {id: i}, 
                         React.createElement("a", {href: docUrl}, truncate(doc.name))
                     ));
                 }
             }
-            if (this.props.metadata.get("supporting").length > MaxAllowed) {
+            if (this.props.metadata.get("associated").length > MaxAllowed) {
                 moreContracts = (React.createElement("span", null, 
                     React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink() + "#relateddocs"}, lang.all_related)
                 ));
@@ -55500,22 +55502,22 @@ var RelatedDocumentsView = React.createClass({displayName: "RelatedDocumentsView
             if (parentContracts.length || supportingContracts.length) {
                 return (
                     React.createElement("div", {className: "relateddocument-view"}, 
-                        React.createElement("div", null, lang.related_docs), 
-                        parentContracts, 
-                        supportingContracts, 
-                        moreContracts
-                    )
-                );
+                    React.createElement("div", null, lang.related_docs), 
+                parentContracts, 
+                supportingContracts, 
+                moreContracts
+            )
+            );
             } else {
                 return (React.createElement("div", null));
             }
         } else {
             return (
                 React.createElement("div", {className: "relateddocument-view"}, 
-                    React.createElement("div", null, lang.related_docs), 
-                    lang.loading
-                )
-            );
+                React.createElement("div", null, lang.related_docs), 
+            lang.loading
+        )
+        );
         }
 
     }
@@ -55538,20 +55540,20 @@ var RelatedDocumentsMoreView = React.createClass({displayName: "RelatedDocuments
             });
             return (
                 React.createElement("div", {className: "relateddocument-more-view"}, 
-                    React.createElement("div", null, "More"), 
-                    React.createElement("div", null, 
-                        React.createElement("div", null, "From ", country), 
-                        React.createElement("div", null, "For ", resources)
-                    )
-                )
-            );
+                React.createElement("div", null, "More"), 
+                React.createElement("div", null, 
+                React.createElement("div", null, "From ", country), 
+            React.createElement("div", null, "For ", resources)
+            )
+            )
+        );
         } else {
             return (
                 React.createElement("div", {className: "relateddocument-more-view"}, 
-                    React.createElement("div", null, "More"), 
-                    React.createElement("span", null, "Loading...")
+                React.createElement("div", null, "More"), 
+                React.createElement("span", null, "Loading...")
                 )
-            );
+        );
         }
     }
 });
@@ -55567,27 +55569,27 @@ var OtherSourcesView = React.createClass({displayName: "OtherSourcesView",
             var amla_url = this.props.metadata.get("url").amla;
             var amlaUrlLink = (React.createElement("span", null, 
                 React.createElement("a", {href: amla_url}, this.props.metadata.get("country").name), 
-                "Legislation"));
+            "Legislation"));
 
             if (amla_url) {
                 return (
                     React.createElement("div", {className: "other-sources-view"}, 
-                        React.createElement("div", null, lang.other_sources), 
-                        React.createElement("div", null, 
-                            React.createElement("div", null, amlaUrlLink)
-                        )
-                    )
-                );
+                    React.createElement("div", null, lang.other_sources), 
+                React.createElement("div", null, 
+                React.createElement("div", null, amlaUrlLink)
+                )
+                )
+            );
             } else {
                 return (React.createElement("div", null));
             }
         } else {
             return (
                 React.createElement("div", {className: "other-sources-view"}, 
-                    React.createElement("div", null, lang.other_sources), 
-                    React.createElement("span", null, lang.loading)
-                )
-            );
+                React.createElement("div", null, lang.other_sources), 
+            React.createElement("span", null, lang.loading)
+            )
+        );
         }
     }
 });
@@ -55595,13 +55597,13 @@ var RightColumnView = React.createClass({displayName: "RightColumnView",
     render: function () {
         return (
             React.createElement("div", {className: "right-column-view"}, 
-                React.createElement(MetadataView, {
-                    contractApp: this.props.contractApp, 
-                    metadata: this.props.metadata}), 
+            React.createElement(MetadataView, {
+        contractApp: this.props.contractApp, 
+        metadata: this.props.metadata}), 
 
-                React.createElement(RelatedDocumentsView, {
-                    metadata: this.props.metadata})
-            )
+        React.createElement(RelatedDocumentsView, {
+        metadata: this.props.metadata})
+        )
         );
     }
 });

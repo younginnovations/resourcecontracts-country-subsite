@@ -145,7 +145,7 @@ var MainApp = React.createClass({
                         <TextSearchForm
                             style={this.getStyle(contractApp.isViewVisible("TextSearchForm"))} />
                         <NavigationView
-                            contractApp={contractApp} /> 
+                            contractApp={contractApp} />
                         <TextPaginationView
                             style={this.getStyle(contractApp.isViewVisible("TextPaginationView"))}
                             contractApp={contractApp}
