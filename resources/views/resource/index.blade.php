@@ -27,7 +27,9 @@
                         </form>
                     </div>
                 </div>
-
+            </div>
+        </div>
+    </div>
     <div class="row side-collapse-container">
         <div id="resources" class="col-lg-12 country-list-wrap f32">
         </div>
@@ -36,9 +38,9 @@
 @stop
 
 @section('js')
-<script type="text/template" id="resource-template">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <a href="{{url('resource')}}/<%= value %>">
+    <script type="text/template" id="resource-template">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <a href="{{url('resource')}}/<%= value %>">
             <div class="country-name resource-name pull-left">
                 <% if(typeof resource[name] == 'undefined') {%>
                     <%= name %>
@@ -73,4 +75,3 @@
 
 <script type="text/javascript" src="{{url('js/resource.min.js')}}"></script>
 @stop
-

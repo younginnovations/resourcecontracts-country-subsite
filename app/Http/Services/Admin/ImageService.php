@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Filesystem\Factory as Filesystem;
 use Illuminate\Http\Request;
+use App\Http\Models\Page\Page;
 
 /**
  * Class ImageService
@@ -37,8 +38,7 @@ class ImageService
      */
     function getName()
     {
-
-        $fileName = get_country('code').'.jpg';
+        $fileName = get_country('code') . '.jpg';
 
         return $fileName;
     }
@@ -78,9 +78,15 @@ class ImageService
      */
     public function getHomePageImageUrl()
     {
-        return $this->filesystem->disk('s3')->getDriver()
-                                ->getAdapter()
-                                ->getClient()
-                                ->getObjectUrl(env('AWS_BUCKET'), $this->getName());
+        $url = url('/images/country.jpg');
+
+        if ($this->filesystem->disk('s3')->exists($this->getName())) {
+            $url = $this->filesystem->disk('s3')->getDriver()
+                                    ->getAdapter()
+                                    ->getClient()
+                                    ->getObjectUrl(env('AWS_BUCKET'), $this->getName());
+        }
+
+        return $url;
     }
 }
