@@ -11,7 +11,7 @@ a,.navbar-brand,
 .btn-search,.btn-form-search, .btn-compare,
 .btn-login-block,
 .pagination > .active > a,
-.pagination > .active > span {
+.pagination > .active > span,.back,.navbar-brand span:first-of-type,.pdf-zoom-options span.scale-selected:before {
   background: #1C7041;
 }
 
