@@ -1,49 +1,23 @@
-a,a:hover,a:focus.navbar-brand, .navbar-brand:hover,
+a,.navbar-brand,
 .breadcrumb-wrapper ul li a,.download-csv a,
-.pagination > li > a,.pagination > li > a:focus,.pagination > li > a:hover,
-.pagination > li > span:focus,.pagination > li > span:hover  {
+.pagination > li > a  {
   color: #39CCCB;
 }
 
-.btn-search, .btn-search:hover, .btn-search:focus,
-.btn-form-search, .btn-compare,
-.btn-login-block, .btn-login-block:hover, .btn-login-block:hover:focus,
-a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
-.pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
-.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
+.navbar-brand:hover {
+  color: #39CCCB!important;
+}
+
+.btn-search,.btn-form-search, .btn-compare,
+.btn-login-block,
+.pagination > .active > a,
+.pagination > .active > span {
   background: #39CCCB;
 }
 
-.pagination > .active > a ,.pagination > .active > a:focus,.pagination > .active > a:hover,
-.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
-  border-color: #2AAAA9;
-}
-
-.btn-search, .btn-search:hover, .btn-search:focus,
-.download-csv {
+.pagination > .active > a ,.pagination > .active > span,
+.btn-search, .download-csv {
   border: 1px solid #2AAAA9;
-}
-
-a:hover,a:focus {
-  color: #2AAAA9;
-}
-
-.btn-search:hover,
-.btn-compare:hover,
-.btn-compare:focus,
-.action-links ul li a:hover,
-.btn-login-block:hover,.btn-login-block:focus,
-.contract-back:hover,.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
-  background: #2AAAA9;
-}
-
-.pagination > .active > a,.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover  {
-  border-color: #2AAAA9;
 }
 
 #sidebar-wrapper {
@@ -54,4 +28,29 @@ a:hover,a:focus {
 
 .sidebar-brand {
   background-blend-mode: multiply;
+}
+
+/*hover effects*/
+
+a:hover,a:focus,
+.pagination > li > a:focus,.pagination > li > a:hover,
+.pagination > li > span:focus,.pagination > li > span:hover {
+  color: #2AAAA9;
+}
+
+.btn-search:hover,.btn-form-search:hover, .btn-search:focus,
+.btn-compare:hover,.btn-compare:focus,
+.btn-login-block:hover, .btn-login-block:hover:focus,
+a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
+.pagination > .active > a,.pagination > .active > a:focus,.pagination > .active > a:hover,
+.pagination > .active > span:focus,.pagination > .active > span:hover,
+.action-links ul li a:hover,
+.contract-back:hover {
+  background: #2AAAA9;
+}
+
+.pagination > .active > a:focus,.pagination > .active > a:hover,
+.pagination > .active > span:focus,.pagination > .active > span:hover,
+.btn-search:hover, .btn-search:focus {
+  border: 1px solid #2AAAA9;
 }
