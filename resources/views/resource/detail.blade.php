@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Lang;
                         <form action="{{url('search')}}" method="get" class="search-form filter-form">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-filter-search pull-left"></button>
-                                <input type="text" name="q" class="form-control pull-left" placeholder="@lang('global.find_contract') {{ucfirst($resource)}} ...">
+                                <input type="text" name="q" class="form-control pull-left" placeholder="@lang('global.find_contract' , ['tag' => ucfirst($resource)])">
                                 <input type="hidden" name="resource" value="{{$resource}}" />
                             </div>
                         </form>
