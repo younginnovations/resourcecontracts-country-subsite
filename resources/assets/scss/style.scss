@@ -612,9 +612,6 @@ a {
 }
 .navbar-brand {
   @extend %extend_3;
-  &:hover {
-    @extend %extend_3;
-  }
   .beta {
     @extend %extend_4;
   }
@@ -636,7 +633,7 @@ a {
   }
   a {
     position: relative;
-    color: $color_white!important;
+    color: $white!important;
   }
 }
 .trigger {
@@ -651,7 +648,7 @@ a {
   .navbar-brand {
     color: $white;
     &:hover {
-      color: $white;
+      color: $white!important;
     }
     span {
       color: $white_70;
@@ -910,8 +907,10 @@ footer {
 }
 .btn-form-reset {
   background: #777;
+  color: $white;
   &:hover,&:focus {
     background: #666;
+    color: $white;
   }
 }
 .btn-compare {

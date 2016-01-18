@@ -76,7 +76,7 @@ $category = $api->getAnnotationsCategory();
                 <button type="submit" class="btn btn-form-search">@lang('global.search')</button>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
-                <button type="reset" name="reset"  id="searchclear" class="btn btn-form-search btn-form-reset">Reset</button>
+                <button type="reset" name="reset"  id="searchclear" class="btn btn-form-reset">Reset</button>
             </div>
             @if(!isset($searchPage))
                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">

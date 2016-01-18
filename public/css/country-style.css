@@ -55,7 +55,7 @@
   width: 54px;
   min-width: 54px; }
 
-.navbar-brand, .navbar-brand:hover {
+.navbar-brand {
   font-size: 19px;
   font-family: Open-Sans-Bold;
   color: #217B46;
@@ -439,7 +439,8 @@ a {
     top: 35px;
     right: -60px; }
   .sidebar-brand a {
-    position: relative; }
+    position: relative;
+    color: #fff !important; }
 
 .trigger {
   background: url(../../images/ic-sprite.png) no-repeat 0 -47px;
@@ -452,7 +453,7 @@ a {
 .front-row-top-wrap .navbar-brand {
   color: #fff; }
   .front-row-top-wrap .navbar-brand:hover {
-    color: #fff; }
+    color: #fff !important; }
   .front-row-top-wrap .navbar-brand span {
     color: rgba(255, 255, 255, 0.7); }
 
@@ -636,9 +637,11 @@ footer {
   background: #1C7041; }
 
 .btn-form-reset {
-  background: #777; }
+  background: #777;
+  color: #fff; }
   .btn-form-reset:hover, .btn-form-reset:focus {
-    background: #666; }
+    background: #666;
+    color: #fff; }
 
 .btn-compare {
   margin: 4px 0 10px; }
