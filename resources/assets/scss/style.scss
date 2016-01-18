@@ -2262,7 +2262,7 @@ td.contract-date {
 }
 
 .back {
-  background: $color_link_color url(../images/ic-sprite-new.png) no-repeat 12px -543px;
+  background: url(../images/ic-sprite-new.png) no-repeat 12px -543px;
   width: 50px;
   display: block;
   height: 46px;
@@ -2286,7 +2286,6 @@ td.contract-date {
   }
   &:hover {
     text-decoration: none;
-    background-color: $color_link_hover_color;
   }
 }
 

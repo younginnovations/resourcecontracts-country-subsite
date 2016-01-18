@@ -1,6 +1,7 @@
 a,.navbar-brand,
 .breadcrumb-wrapper ul li a,.download-csv a,
-.pagination > li > a  {
+.pagination > li > a,.navbar-brand span:first-of-type,
+.annotations-topic-list span  {
   color: #17A9A8;
 }
 
@@ -11,13 +12,18 @@ a,.navbar-brand,
 .btn-search,.btn-form-search, .btn-compare,
 .btn-login-block,
 .pagination > .active > a,
-.pagination > .active > span,.back,.navbar-brand span:first-of-type,.pdf-zoom-options span.scale-selected:before {
-  background: #17A9A8;
+.pagination > .active > span,.back,.pdf-zoom-options span.scale-selected:before,
+.annotations-topic-list > .selected-topic {
+  background-color: #17A9A8;
 }
 
 .pagination > .active > a ,.pagination > .active > span,
 .btn-search, .download-csv {
-  border: 1px solid #17A9A8;
+  border: 1px solid #0B9C9B;
+}
+
+.search-results-list .close {
+  border-color: #0B9C9B;
 }
 
 #sidebar-wrapper {
@@ -34,7 +40,8 @@ a,.navbar-brand,
 
 a:hover,a:focus,
 .pagination > li > a:focus,.pagination > li > a:hover,
-.pagination > li > span:focus,.pagination > li > span:hover {
+.pagination > li > span:focus,.pagination > li > span:hover,
+.search-result-row:hover  {
   color: #0B9C9B;
 }
 
@@ -45,8 +52,8 @@ a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
 .pagination > .active > a,.pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .action-links ul li a:hover,
-.contract-back:hover {
-  background: #0B9C9B;
+.contract-back:hover,.back:hover,.search-results-list .close:hover {
+  background-color: #0B9C9B;
 }
 
 .pagination > .active > a:focus,.pagination > .active > a:hover,

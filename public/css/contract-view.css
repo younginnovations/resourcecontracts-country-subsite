@@ -325,7 +325,7 @@
     padding-top: 0 !important;
 }
 
-.selected-annotation {  
+.selected-annotation {
     border: 1px solid #C5C5C5;
     background: #F4F4F4;
     -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -445,7 +445,7 @@
     left: -2px;
     width: 10px;
     height: 10px;
-    background: #217B49;
+    /*background: #217B49;*/
     border-radius: 50%;
 }
 
@@ -554,7 +554,7 @@
 }
 
 .back {
-    background: #217B49 url(../images/ic-sprite-new.png) no-repeat 12px -543px;
+    background: url(../images/ic-sprite-new.png) no-repeat 12px -543px;
     width: 50px;
     display: block;
     height: 46px;
@@ -598,10 +598,6 @@
     border-right: 1px solid rgb(220, 223, 226);
     border-right: 1px solid rgba(220, 223, 226, 0.7);
     padding: 0 16px;
-}
-
-.navbar-brand span:first-of-type {
-    color: #217B46;
 }
 
 .navbar-brand, .navbar-brand:hover {
@@ -724,4 +720,3 @@
         display: none!important;
     }
 }
-
