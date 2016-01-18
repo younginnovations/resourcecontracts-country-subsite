@@ -1,23 +1,23 @@
 a,.navbar-brand,
 .breadcrumb-wrapper ul li a,.download-csv a,
 .pagination > li > a  {
-  color: #39CCCB;
+  color: #1C7041;
 }
 
 .navbar-brand:hover {
-  color: #39CCCB!important;
+  color: #1C7041!important;
 }
 
 .btn-search,.btn-form-search, .btn-compare,
 .btn-login-block,
 .pagination > .active > a,
 .pagination > .active > span {
-  background: #39CCCB;
+  background: #1C7041;
 }
 
 .pagination > .active > a ,.pagination > .active > span,
 .btn-search, .download-csv {
-  border: 1px solid #2AAAA9;
+  border: 1px solid #1C7041;
 }
 
 #sidebar-wrapper {
@@ -35,7 +35,7 @@ a,.navbar-brand,
 a:hover,a:focus,
 .pagination > li > a:focus,.pagination > li > a:hover,
 .pagination > li > span:focus,.pagination > li > span:hover {
-  color: #2AAAA9;
+  color: #1C7041;
 }
 
 .btn-search:hover,.btn-form-search:hover, .btn-search:focus,
@@ -46,11 +46,11 @@ a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .action-links ul li a:hover,
 .contract-back:hover {
-  background: #2AAAA9;
+  background: #1C7041;
 }
 
 .pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .btn-search:hover, .btn-search:focus {
-  border: 1px solid #2AAAA9;
+  border: 1px solid #1C7041;
 }
