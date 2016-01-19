@@ -4,8 +4,8 @@
 
 NRGI-Subsite can be cloned from github repository and installed. Following the procedure given below:
 
-* git clone https://github.com/younginnovations/resourcecontracts-rc-subsite.git
-* cd rc-subsite
+* git clone https://github.com/younginnovations/resourcecontracts-country-subsite.git
+* cd resourcecontracts-country-subsite
 
 ## Run
 
@@ -31,4 +31,4 @@ be seen in the [composer.json](https://github.com/younginnovations/resourcecontr
 
 ## Deployment
 
-We use Elastic Beanstalk CLI. 
+We use Elastic Beanstalk CLI.
