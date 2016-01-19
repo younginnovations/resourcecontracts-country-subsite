@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="{{url('images/favicon.ico')}}">
-    <title>@lang('country.'.strtoupper(env('COUNTRY'))) - Resource Contracts</title>
+    <title>{{ get_country('name') }} - Resource Contracts</title>
 
     <link href="{{url('css/main.min.css')}}" rel="stylesheet">
 
