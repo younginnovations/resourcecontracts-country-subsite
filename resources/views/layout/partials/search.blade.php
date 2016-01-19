@@ -11,7 +11,7 @@ $category = $api->getAnnotationsCategory();
     </div>
     <div class="search-input-wrapper @if(isset($show_advance)) search-page-input-wrapper @endif">
         <div class="col-lg-12">
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
                 <label for="">@lang('search.year_signed')</label>
                 <select name="year[]" id="year" multiple="multiple">
                     @foreach($summary->year_summary as $year)
@@ -19,8 +19,7 @@ $category = $api->getAnnotationsCategory();
                     @endforeach
                 </select>
             </div>
-
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
                 <label for="">@lang('global.resource')</label>
                 <select name="resource[]" id="resource" multiple="multiple">
                     @foreach($summary->resource_summary as $resource)
@@ -28,7 +27,7 @@ $category = $api->getAnnotationsCategory();
                     @endforeach
                 </select>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
                 <label for="">@lang('search.company_name')</label>
                 <select name="company_name[]" id="company" multiple="multiple">
                     <?php $company_array = array_map('trim', (array) $attributes->company_name);
@@ -39,19 +38,17 @@ $category = $api->getAnnotationsCategory();
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="col-lg-12">
             @if(env('CATEGORY')=="rc")
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
-                    <label for="">@lang('search.corporate_group')</label>
-                    <select name="corporate_group[]" id="corporate_group" multiple="multiple">
-                        @foreach($attributes->corporate_grouping as $group)
-                            <option @if(isset($filter['corporate_group']) && in_array($group, $filter['corporate_group'])) selected="selected" @endif value="{{$group}}">{{$group}}</option>
-                        @endforeach
-                    </select>
-                </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
+                <label for="">@lang('search.corporate_group')</label>
+                <select name="corporate_group[]" id="corporate_group" multiple="multiple">
+                    @foreach($attributes->corporate_grouping as $group)
+                        <option @if(isset($filter['corporate_group']) && in_array($group, $filter['corporate_group'])) selected="selected" @endif value="{{$group}}">{{$group}}</option>
+                    @endforeach
+                </select>
+            </div>
             @endif
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
                 <label for="">@lang('search.contract_type')</label>
                 <select name="contract_type[]" id="contract_type" multiple="multiple">
                     @foreach(array_filter($attributes->contract_type) as $type)
@@ -59,7 +56,7 @@ $category = $api->getAnnotationsCategory();
                     @endforeach
                 </select>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 input-wrapper">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 input-wrapper">
                 <label for="">@lang('search.annotations_category')</label>
                 <?php $annotation_category = array_map('trim', (array) $category->results);
                 sort($annotation_category);
@@ -71,7 +68,7 @@ $category = $api->getAnnotationsCategory();
                 </select>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12 action-btn-wrap">
             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
                 <button type="submit" class="btn btn-form-search">@lang('global.search')</button>
             </div>

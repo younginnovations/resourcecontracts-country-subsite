@@ -45,7 +45,7 @@
 .country-wrap {
   padding-bottom: 201px !important; }
 
-.table > tbody > tr td, .table > tbody > tr th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+.table > tbody > tr td, .table > thead > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td {
   border-top: 1px solid #eaeaea;
   padding: 14px 14px 14px 10px;
   line-height: 22px; }
@@ -60,7 +60,7 @@
   font-family: Open-Sans-Bold;
   color: #217B46;
   text-transform: uppercase;
-  padding: 16px 20px 12px 0;
+  padding: 16px 0 12px 0;
   height: auto;
   position: relative; }
 
@@ -377,8 +377,8 @@ a {
 .table > tbody > tr td > a {
   color: #404040; }
 
-.table > tbody > tr th > a {
-  color: #404040; }
+.table > thead > tr > th > a {
+  color: rgba(64, 64, 64, 0.7); }
 
 .table > thead > tr > th {
   font-family: Open-Sans-Bold;
@@ -617,7 +617,7 @@ footer {
     .search-input-wrapper .col-lg-5 .btn {
       margin-top: 0; }
   .search-input-wrapper:not(.search-page-input-wrapper) > .col-lg-12 > .col-lg-3 {
-    float: none; }
+    margin-bottom: 20px; }
   .search-input-wrapper .select2-container .select2-selection--single {
     height: 33px !important; }
   .search-input-wrapper .select2-container--classic .select2-selection--single .select2-selection__rendered {
@@ -1710,7 +1710,7 @@ td.contract-date {
      background-size: 9px; }
 
 .back {
-  background: #217B46 url(../images/ic-sprite-new.png) no-repeat 12px -543px;
+  background: url(../images/ic-sprite-new.png) no-repeat 12px -543px;
   width: 50px;
   display: block;
   height: 46px;
@@ -1731,8 +1731,7 @@ td.contract-date {
     color: #fff;
     color: rgba(255, 255, 255, 0.4); }
   .contract-back:hover {
-    text-decoration: none;
-    background-color: #1C7041; }
+    text-decoration: none; }
 
 .license-buttons {
   margin-top: 10px; }
@@ -1833,7 +1832,9 @@ td.contract-date {
   .category-wrap li:nth-child(odd) {
     padding-left: 0; }
   .category-wrap li:nth-child(-n+2) {
-    padding-top: 0; } }
+    padding-top: 0; }
+  .search-input-wrapper:not(.search-page-input-wrapper) > .col-lg-12 > .col-lg-3 {
+    width: 33%; } }
 
 @media all and (min-width: 992px) {
   .navbar-right {
@@ -1956,9 +1957,7 @@ td.contract-date {
   .country-contract-wrap td:nth-of-type(5):before {
     content: "Contract Type"; }
   .search-input-wrapper .col-lg-12 .col-lg-4 {
-    margin-top: 25px; }
-  .search-input-wrapper .col-lg-12 .col-xs-6:last-child {
-    margin-top: 10px; } }
+    margin-top: 25px; } }
 
 @media all and (max-width: 480px) {
   .filter-wrapper > .col-lg-2 {
@@ -2296,5 +2295,22 @@ input.select2-search__field {
   .country-flag img {
     width: 100%;
     height: 100%; }
+
+@media all and (min-width: 992px) {
+  .navbar-header {
+    max-width: 410px; }
+    .navbar-header + .navbar-right {
+      width: -webkit-calc(100% - 410px);
+      width: -moz-calc(100% - 410px);
+      width: calc(100% - 410px); } }
+
+.action-btn-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .action-btn-wrap > div {
+    padding-right: 0; }
 
 /*# sourceMappingURL=maps/country-style.css.map */

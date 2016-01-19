@@ -415,7 +415,6 @@
 }
 
 .annotations-topic-list span {
-    color: #217B40;
     display: inline-block;
     cursor: pointer;
     margin: 0 13px 9px 0;
@@ -469,7 +468,6 @@
     left: -2px;
     width: 10px;
     height: 10px;
-    background: #217B49;
     border-radius: 50%;
 }
 
@@ -580,7 +578,7 @@
 }
 
 .back {
-    background: url(../images/ic-sprite-new.png) no-repeat 12px -543px;
+    background: inherit url(../images/ic-sprite-new.png) no-repeat 12px -543px;
     width: 50px;
     display: block;
     height: 44px;
@@ -627,7 +625,6 @@
 }
 
 .navbar-brand span:first-of-type {
-    color: #217B46;
     display: inline-block;
     font-size: 19px;
     font-family: "open-sans-bold";
