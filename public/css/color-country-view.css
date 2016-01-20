@@ -13,7 +13,7 @@ a,.navbar-brand,
 .btn-login-block,
 .pagination > .active > a,
 .pagination > .active > span,.back,.pdf-zoom-options span.scale-selected:before,
-.annotations-topic-list > .selected-topic {
+.annotations-topic-list > .selected-topic,.action-links ul li a {
   background-color: #17A9A8;
 }
 
@@ -51,9 +51,9 @@ a:hover,a:focus,
 .pagination > .active > a,.pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .action-links ul li a:hover,
-.contract-back:hover,.back:hover,.search-results-list .close:hover,
-.action-links ul li a {
+.contract-back:hover,.back:hover,.search-results-list .close:hover {
   background-color: #0B9C9B;
+  text-decoration: none;
 }
 
 a.view-annotation-cluster:hover,a.view-annotation-cluster.active {

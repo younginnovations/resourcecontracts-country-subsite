@@ -52,7 +52,6 @@
 
 .table > tbody > tr td:first-child, .table > thead > tr > th:first-child {
   padding: 8px 0 8px 32px;
-  width: 54px;
   min-width: 54px; }
 
 .navbar-brand {
@@ -60,7 +59,7 @@
   font-family: Open-Sans-Bold;
   color: #217B46;
   text-transform: uppercase;
-  padding: 16px 0 12px 0;
+  padding: 16px 20px 12px 0;
   height: auto;
   position: relative; }
 
@@ -470,8 +469,7 @@ a {
   margin: 0;
   position: relative;
   border-left: 1px solid #e7e9eb;
-  border-top: 1px solid #e7e9eb;
-  padding-left: 30px; }
+  border-top: 1px solid #e7e9eb; }
 
 .row-top-content {
   padding: 100px 40px; }
@@ -609,7 +607,7 @@ footer {
     .search-input-wrapper .col-lg-12 button {
       margin: 0 6px 0 0;
       width: 100%; }
-  .search-input-wrapper .col-lg-2 {
+  .search-input-wrapper .col-lg-3 {
     margin-bottom: 20px; }
   .search-input-wrapper .col-lg-5 {
     padding-left: 36px;
@@ -1042,14 +1040,10 @@ footer {
   -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
   position: relative; }
-  .contract-detail-wrapper > .col-lg-12:first-of-type {
-    margin-bottom: 30px !important; }
-  .contract-detail-wrapper > .col-lg-12:nth-child(2) {
-    margin-bottom: 40px !important; }
   .contract-detail-wrapper .col-lg-12:not(:first-of-type) {
     padding: 0 30px; }
   .contract-detail-wrapper > .col-lg-12:not(:last-of-type) {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     clear: both; }
 
 .panel-contract-wrap {
@@ -1084,7 +1078,7 @@ footer {
             border-radius: 4px;
     padding: 0;
     overflow: hidden;
-    margin-bottom: 8px; }
+    margin-bottom: 4px; }
     .panel-contract-wrap > .panel-body:only-child {
       margin-bottom: 0; }
   .panel-contract-wrap .panel-body:not(.panel-col3-wrap) li:nth-child(odd) {
@@ -1935,8 +1929,6 @@ td.contract-date {
     background: url(../../images/ic-tick.png) no-repeat 0;
     padding-left: 20px !important;
     clear: both; }
-  .table > tbody > tr > td {
-    min-height: 51px; }
   .table-contract td:first-child {
     background-position: 36px 17px; }
   .table-contract td:nth-child(2) > a {
@@ -1957,7 +1949,11 @@ td.contract-date {
   .country-contract-wrap td:nth-of-type(5):before {
     content: "Contract Type"; }
   .search-input-wrapper .col-lg-12 .col-lg-4 {
-    margin-top: 25px; } }
+    margin-top: 25px; }
+  .navbar-right {
+    width: 100% !important; }
+  .navbar-brand {
+    font-size: 15px; } }
 
 @media all and (max-width: 480px) {
   .filter-wrapper > .col-lg-2 {
@@ -2295,14 +2291,6 @@ input.select2-search__field {
   .country-flag img {
     width: 100%;
     height: 100%; }
-
-@media all and (min-width: 992px) {
-  .navbar-header {
-    max-width: 410px; }
-    .navbar-header + .navbar-right {
-      width: -webkit-calc(100% - 410px);
-      width: -moz-calc(100% - 410px);
-      width: calc(100% - 410px); } }
 
 .action-btn-wrap {
   display: -webkit-box;
