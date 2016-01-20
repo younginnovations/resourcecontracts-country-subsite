@@ -216,10 +216,12 @@ $(document).ready(function () {
   var navbarHeaderWidth = $('.navbar-header').width();
   var navbarRightWidth = $(window).width() - navbarHeaderWidth - 20;
   $('.navbar-header+.navbar-right').css('width',navbarRightWidth);
+  $('.navbar-header+span').css('width',navbarRightWidth - 15);
 
   $(window).resize(function(){
     var navbarHeaderWidth = $('.navbar-header').width();
     var navbarRightWidth = $(window).width() - navbarHeaderWidth - 20;
     $('.navbar-header+.navbar-right').css('width',navbarRightWidth);
+    $('.navbar-header+span').css('width',navbarRightWidth - 15);
   });
 });
