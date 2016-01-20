@@ -10,7 +10,7 @@
 }
 
 .title-wrap > span {
-    padding: 20px 13px;
+    padding: 17px 13px;
     float: left;
     width: 80%;
     overflow: hidden;
@@ -621,7 +621,7 @@
 .navbar-header {
     border-right: 1px solid rgb(220, 223, 226);
     border-right: 1px solid rgba(220, 223, 226, 0.7);
-    padding: 0 16px;
+    padding: 0 16px 0 15px;
 }
 
 .navbar-brand span:first-of-type {
@@ -635,11 +635,7 @@
 }
 
 .title-wrap > span {
-    padding: 20px 13px;
-}
-
-.title-wrap > span {
-    padding: 20px 13px;
+    padding: 17px 13px;
 }
 
 .back-to-top {
