@@ -104,7 +104,6 @@ $url_18: url(../images/ic-title-bg.png);
 //.table > thead > tr > th:first-child, .table > tbody > tr > td:first-child
 %extend_2 {
   padding: 8px 0 8px 32px;
-  width: 54px;
   min-width: 54px;
 }
 
@@ -115,7 +114,7 @@ $url_18: url(../images/ic-title-bg.png);
   font-family: $font_1;
   color: $color_link_color;
   text-transform: uppercase;
-  padding: 16px 0 12px 0;
+  padding: 16px 20px 12px 0;
   height: auto;
   position: relative;
 }
@@ -669,7 +668,6 @@ a {
   position: relative;
   border-left: 1px solid $color_mystic_approx;
   border-top: 1px solid $color_mystic_approx;
-  padding-left: 30px;
 }
 .row-top-content {
   padding: 100px 40px;
@@ -860,7 +858,7 @@ footer {
       width: 100%;
     }
   }
-  .col-lg-2 {
+  .col-lg-3 {
     margin-bottom: 20px;
   }
   .col-lg-5 {
@@ -1408,17 +1406,11 @@ footer {
   //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   box-shadow: 0 8px 10px $black_10;
   position: relative;
-  > .col-lg-12:first-of-type {
-    margin-bottom: 30px!important;
-  }
-  > .col-lg-12:nth-child(2) {
-    margin-bottom: 40px!important;
-  }
   .col-lg-12:not(:first-of-type) {
     padding: 0 30px;
   }
   > .col-lg-12:not(:last-of-type) {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     clear: both;
   }
 }
@@ -1464,7 +1456,7 @@ footer {
     border-radius: 4px;
     padding: 0;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     &:only-child {
       margin-bottom: 0;
     }
@@ -2592,7 +2584,6 @@ td.contract-date {
     tbody > tr > {
       td {
         // @extend %extend_31;
-        min-height: 51px;
       }
       th {
         // @extend %extend_31;
@@ -2634,6 +2625,12 @@ td.contract-date {
     .col-lg-4 {
       margin-top: 25px;
     }
+  }
+  .navbar-right {
+    width: 100%!important;
+  }
+  .navbar-brand {
+    font-size: 15px;
   }
 }
 @media all and(max-width: 480px) {
@@ -3043,14 +3040,6 @@ input.select2-search__field {
   img {
     width: 100%;
     height: 100%;
-  }
-}
-@media all and (min-width: 992px) {
-  .navbar-header {
-    max-width: 410px;
-    &+.navbar-right {
-      width: calc(100% - 410px);
-    }
   }
 }
 
