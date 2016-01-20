@@ -48,12 +48,16 @@ a:hover,a:focus,
 .btn-search:hover,.btn-form-search:hover, .btn-search:focus,
 .btn-compare:hover,.btn-compare:focus,
 .btn-login-block:hover, .btn-login-block:hover:focus,
-a.view-annotation-cluster:hover,a.view-annotation-cluster.active,
 .pagination > .active > a,.pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .action-links ul li a:hover,
-.contract-back:hover,.back:hover,.search-results-list .close:hover {
+.contract-back:hover,.back:hover,.search-results-list .close:hover,
+.action-links ul li a {
   background-color: #0B9C9B;
+}
+
+a.view-annotation-cluster:hover,a.view-annotation-cluster.active {
+  background-color: #0B9C9B!important;
 }
 
 .pagination > .active > a:focus,.pagination > .active > a:hover,
