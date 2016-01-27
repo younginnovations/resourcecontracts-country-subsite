@@ -234,6 +234,7 @@ class APIService
         try {
             $request               = new Request('GET', $this->apiURL($resource));
             $query['country_code'] = env('COUNTRY');
+            $query['category']     = env('CATEGORY');
             $request->setQuery($query);
             $response = $this->client->send($request);
             $data     = $response->getBody();
