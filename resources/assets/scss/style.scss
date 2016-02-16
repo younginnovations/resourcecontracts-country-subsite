@@ -83,7 +83,7 @@ $url_13: url(../../images/ic-close.png);
 $url_15: url(../../images/paper-bg.png);
 $url_16: url(../../images/ic-amla.png);
 $url_17: url(../../images/ic-delete.png);
-$url_18: url(../images/ic-title-bg.png);
+$url_18: url(../images/ic-title-bg.jpg);
 
 //gradients
 
@@ -104,7 +104,7 @@ $url_18: url(../images/ic-title-bg.png);
 //.table > thead > tr > th:first-child, .table > tbody > tr > td:first-child
 %extend_2 {
   padding: 8px 0 8px 32px;
-  min-width: 54px;
+  min-width: 40px;
 }
 
 //original selectors
@@ -609,6 +609,10 @@ a {
   background: no-repeat center/cover;
   margin: 0;
 }
+.homepage-wrapper {
+  background: rgba(0,0,0,0.25);
+  overflow: hidden;
+}
 .navbar-brand {
   @extend %extend_3;
   .beta {
@@ -622,9 +626,9 @@ a {
   }
 }
 .sidebar-brand {
-    background: rgba(57,204,203,0.6) $url_18 no-repeat 0 0/cover!important;
+    background: rgba(0,150,224,0.8) $url_18 no-repeat 0 0/cover!important;
     width: 280px;
-    height: 124px!important;
+    height: 240px!important;
   .beta {
     @extend %extend_4;
     top: 35px;
@@ -662,6 +666,10 @@ a {
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
   }
+}
+
+.sidebar-brand .navbar-brand:hover {
+  color: $white!important;
 }
 .navbar-right {
   margin: 0;

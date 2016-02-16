@@ -2,9 +2,7 @@
     <div class="footer-note">
         <text class="small">
             @lang('footer.message')
-            <p>
-                @lang('footer.further_information')
-            </p>
+            @lang('footer.further_information')
         </text>
     </div>
     <div class="row">
