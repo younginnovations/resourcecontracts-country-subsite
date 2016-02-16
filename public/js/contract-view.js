@@ -55290,8 +55290,8 @@ var MetadataToggleButton = React.createClass({displayName: "MetadataToggleButton
     render: function () {
         return (
             React.createElement("div", {className: "metadata-toggle-button pull-right metadata-shown"}, 
-            React.createElement("span", {onClick: this.handleClick}, "Meta")
-        )
+                React.createElement("span", {onClick: this.handleClick}, "Meta")
+            )
         );
     }
 });
@@ -55300,7 +55300,8 @@ var MetadataToggleButton = React.createClass({displayName: "MetadataToggleButton
 var MetadataView = React.createClass({displayName: "MetadataView",
     getInitialState: function () {
         return {
-            showMoreMetadata: false
+            showMoreMetadata: false,
+            showMoreText: false
         }
     },
     componentDidMount: function () {
@@ -55318,11 +55319,16 @@ var MetadataView = React.createClass({displayName: "MetadataView",
             $(".metadata-view .show-more-meta").hide(500);
         }
     },
+    handleMoreText: function (e) {
+        e.preventDefault();
+        this.setState({showMoreText: !this.state.showMoreText});
+    },
     render: function () {
         var showLabel = lang.show_more;
         if (this.state.showMoreMetadata) {
             showLabel = lang.show_less;
         }
+
         if (this.props.metadata.get("country")) {
             var countryCode = this.props.metadata.get("country").code.toLowerCase();
             var countryLink = app_url + "/countries/" + countryCode;
@@ -55331,7 +55337,13 @@ var MetadataView = React.createClass({displayName: "MetadataView",
             var sigYearLink = app_url + "/contracts?year=" + sigYear;
 
             var ct = this.props.metadata.get("contract_type");
-            var contractType ='';
+            var contractType = ct.map(function (contractType, i) {
+                if (i != ct.length - 1) {
+                    return React.createElement('a', {href: app_url + "/search?q=&contract_type%5B%5D=" + contractType, key: i}, contractType + ' | ');
+                } else {
+                    return React.createElement('a', {href: app_url + "/search?q=&contract_type%5B%5D=" + contractType, key: i}, contractType);
+                }
+            });
 
             if (typeof ct === 'object') {
                 contractType = ct.map(function (contractType, i) {
@@ -55353,69 +55365,108 @@ var MetadataView = React.createClass({displayName: "MetadataView",
                 }
             });
 
-            if(this.props.metadata.get("note") != "") {
-                var note = React.createElement("div", {className: "metadata-info"},
-                    React.createElement("span", null, "Note"),
-                    React.createElement("p", null, this.props.metadata.get("note"))
-                );
+            var note = this.props.metadata.get("note");
+            if (note != "") {
+                var noteHtml = "<span class='metadata-note'>Note:</span>";
+
+                if (!this.state.showMoreText) {
+                    var maxWord = 20;
+                    var noteArray = note.split(' ');
+                    var more = '';
+                    if (noteArray.length > maxWord) {
+                        note = noteArray.slice(0, maxWord).join(' ') + '... ';
+                        more = (React.createElement("a", {className: "ellipsis", href: "#", onClick: this.handleMoreText}, " More"));
+                    }
+                } else {
+                    more = (React.createElement("a", {className: "ellipsis", href: "#", onClick: this.handleMoreText}, " Less"));
+                }
+                noteHtml += '<span class="note">' + note + '</span>';
+                noteHtml = (React.createElement("span", {className: "note-inner-wrapper", dangerouslySetInnerHTML: {__html: noteHtml}}));
             }
+
+            var missing_html = '';
+
+            if(this.props.metadata.get("is_annexes_missing"))
+            {
+                missing_html += '<div class="metadata-ocid">'+
+                    '<span>'+lang.annexes_missing+'</span>'+
+                    '<span>Yes</span>'+
+                    '</div>';
+            }
+
+            if(this.props.metadata.get("is_pages_missing"))
+            {
+                missing_html += '<div class="metadata-ocid">'+
+                    '<span>'+lang.pages_missing+'</span>'+
+                    '<span>Yes</span>'+
+                    '</div>';
+            }
+
+            missing_html = {__html: missing_html};
+
             return (
                 React.createElement("div", {id: "metadata"}, 
-                note, 
-                React.createElement("div", {className: "metadata-view"}, 
-                React.createElement("div", null, 
-                lang.metadata, 
-        React.createElement("div", {className: "metadata-view-footer pull-right"}, 
-                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
-            )
-            ), 
+                    React.createElement("div", {className: "note-wrapper"}, 
+                        noteHtml, 
+                        more
+                    ), 
+                    React.createElement("div", {className: "metadata-view"}, 
+                        React.createElement("div", null, 
+                            lang.metadata, 
+                            React.createElement("div", {className: "metadata-view-footer pull-right"}, 
+                                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
+                            )
+                        ), 
 
-            React.createElement("div", {className: "metadata-country"}, 
-                React.createElement("span", null, lang.country), 
-            React.createElement("span", null, 
-            React.createElement("a", {href: countryLink}, this.props.metadata.get("country").name)
-            )
-            ), 
-            React.createElement("div", {className: "metadata-signature-year"}, 
-                React.createElement("span", null, lang.signature_year), 
-            React.createElement("span", null, 
-            React.createElement("a", {href: sigYearLink}, this.props.metadata.get("year_signed") || "-")
-            )
-            ), 
-            React.createElement("div", {className: "metadata-resource"}, 
-                React.createElement("span", null, lang.resource), 
-            React.createElement("span", null, resources)
-            ), 
-            React.createElement("div", {className: "metadata-type-contract"}, 
-                React.createElement("span", null, lang.type_contract), 
-            React.createElement("span", null, 
-            contractType
-            )
-            ), 
-            React.createElement("div", {className: "metadata-ocid"}, 
-                React.createElement("span", null, lang.open_contracting_id), 
-            React.createElement("span", null, this.props.metadata.get("open_contracting_id"))
-            ), 
-            React.createElement("div", {className: "metadata-ocid"}, 
-                React.createElement("span", null, lang.disclosure_mode), 
-            React.createElement("span", null, this.props.metadata.get("publisher_type") || "-")
-            ), 
+                        React.createElement("div", {className: "metadata-country"}, 
+                            React.createElement("span", null, lang.country), 
+                            React.createElement("span", null, 
+                                React.createElement("a", {href: countryLink}, this.props.metadata.get("country").name)
+                            )
+                        ), 
+                        React.createElement("div", {className: "metadata-signature-year"}, 
+                            React.createElement("span", null, lang.signature_year), 
+                            React.createElement("span", null, 
+                                React.createElement("a", {href: sigYearLink}, this.props.metadata.get("year_signed") || "-")
+                            )
+                        ), 
+                        React.createElement("div", {className: "metadata-resource"}, 
+                            React.createElement("span", null, lang.resource), 
+                            React.createElement("span", null, resources)
+                        ), 
+                        React.createElement("div", {className: "metadata-type-contract"}, 
+                            React.createElement("span", null, lang.type_contract), 
+                            React.createElement("span", null, 
+                               contractType
+                            )
+                        ), 
+                        React.createElement("div", {className: "metadata-ocid"}, 
+                            React.createElement("span", null, lang.open_contracting_id), 
+                            React.createElement("span", null, this.props.metadata.get("open_contracting_id"))
+                        ), 
+                        React.createElement("div", {className: "metadata-ocid"}, 
+                            React.createElement("span", null, lang.disclosure_mode), 
+                            React.createElement("span", null, this.props.metadata.get("publisher_type") || "-")
+                        ), 
 
-            React.createElement(LandMatrixView, {
-            metadata: this.props.metadata})
-        )
-            )
-        );
+                        React.createElement("div", {dangerouslySetInnerHTML: missing_html}), 
+
+
+                        React.createElement(LandMatrixView, {
+                            metadata: this.props.metadata})
+                    )
+                )
+            );
         } else {
             return (
                 React.createElement("div", {className: "metadata-view"}, 
-                React.createElement("div", null, lang.metadata), 
-            React.createElement("span", null, lang.loading), 
-            React.createElement("div", {className: "metadata-view-footer"}, 
-                React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
-            )
-            )
-        );
+                    React.createElement("div", null, lang.metadata), 
+                    React.createElement("span", null, lang.loading), 
+                    React.createElement("div", {className: "metadata-view-footer"}, 
+                        React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink()}, lang.see_summary)
+                    )
+                )
+            );
         }
 
     }
@@ -55435,13 +55486,13 @@ var LandMatrixView = React.createClass({displayName: "LandMatrixView",
             id = '#' + this.props.metadata.get("deal_number");
         }
 
-        if (this.props.metadata.get("category")[0] === 'olc') {
+        if (category === 'Openland') {
             return (
                 React.createElement("div", {className: "metadata-ocid"}, 
-                React.createElement("span", null, "Land Matrix ID: "), 
-            React.createElement("a", {target: "_blank", href: this.props.metadata.get('matrix_page')}, id)
-            )
-        );
+                    React.createElement("span", null, "Land Matrix ID: "), 
+                    React.createElement("a", {target: "_blank", href: this.props.metadata.get('matrix_page')}, id)
+                )
+            );
         }
         else {
             return (React.createElement("div", null));
@@ -55475,18 +55526,17 @@ var RelatedDocumentsView = React.createClass({displayName: "RelatedDocumentsView
                 var docUrl = app_url + "/contract/" + doc.open_contracting_id;
                 if (doc.is_published) {
                     return (
-                        React.createElement("span", null, 
-                        React.createElement("a", {href: docUrl}, doc.name)
-                    )
-                );
+                        React.createElement("span", {className: "parent-contract"}, 
+                            React.createElement("a", {href: docUrl}, doc.name)
+                        )
+                    );
                 }
             });
             var MaxAllowed = 3;
             var maxDocs = (this.props.metadata.get("associated").length < MaxAllowed) ? this.props.metadata.get("associated").length : MaxAllowed;
+
             for (var i = 0; i < maxDocs; i++) {
                 var doc = this.props.metadata.get("associated")[i];
-
-
                 if (doc.is_published) {
                     var docUrl = app_url + "/contract/" + doc.open_contracting_id;
                     supportingContracts.push(React.createElement("span", {id: i}, 
@@ -55494,30 +55544,26 @@ var RelatedDocumentsView = React.createClass({displayName: "RelatedDocumentsView
                     ));
                 }
             }
-            if (this.props.metadata.get("associated").length > MaxAllowed) {
-                moreContracts = (React.createElement("span", null, 
-                    React.createElement("a", {href: this.props.contractApp.getMetadataSummaryLink() + "#relateddocs"}, lang.all_related)
-                ));
-            }
+
             if (parentContracts.length || supportingContracts.length) {
                 return (
                     React.createElement("div", {className: "relateddocument-view"}, 
-                    React.createElement("div", null, lang.related_docs), 
-                parentContracts, 
-                supportingContracts, 
-                moreContracts
-            )
-            );
+                        React.createElement("div", null, lang.related_docs), 
+                        React.createElement("span", null, parentContracts), 
+                        supportingContracts, 
+                        moreContracts
+                    )
+                );
             } else {
                 return (React.createElement("div", null));
             }
         } else {
             return (
                 React.createElement("div", {className: "relateddocument-view"}, 
-                React.createElement("div", null, lang.related_docs), 
-            lang.loading
-        )
-        );
+                    React.createElement("div", null, lang.related_docs), 
+                    lang.loading
+                )
+            );
         }
 
     }
@@ -55540,20 +55586,20 @@ var RelatedDocumentsMoreView = React.createClass({displayName: "RelatedDocuments
             });
             return (
                 React.createElement("div", {className: "relateddocument-more-view"}, 
-                React.createElement("div", null, "More"), 
-                React.createElement("div", null, 
-                React.createElement("div", null, "From ", country), 
-            React.createElement("div", null, "For ", resources)
-            )
-            )
-        );
+                    React.createElement("div", null, "More"), 
+                    React.createElement("div", null, 
+                        React.createElement("div", null, "From ", country), 
+                        React.createElement("div", null, "For ", resources)
+                    )
+                )
+            );
         } else {
             return (
                 React.createElement("div", {className: "relateddocument-more-view"}, 
-                React.createElement("div", null, "More"), 
-                React.createElement("span", null, "Loading...")
+                    React.createElement("div", null, "More"), 
+                    React.createElement("span", null, "Loading...")
                 )
-        );
+            );
         }
     }
 });
@@ -55569,27 +55615,27 @@ var OtherSourcesView = React.createClass({displayName: "OtherSourcesView",
             var amla_url = this.props.metadata.get("url").amla;
             var amlaUrlLink = (React.createElement("span", null, 
                 React.createElement("a", {href: amla_url}, this.props.metadata.get("country").name), 
-            "Legislation"));
+                "Legislation"));
 
             if (amla_url) {
                 return (
                     React.createElement("div", {className: "other-sources-view"}, 
-                    React.createElement("div", null, lang.other_sources), 
-                React.createElement("div", null, 
-                React.createElement("div", null, amlaUrlLink)
-                )
-                )
-            );
+                        React.createElement("div", null, lang.other_sources), 
+                        React.createElement("div", null, 
+                            React.createElement("div", null, amlaUrlLink)
+                        )
+                    )
+                );
             } else {
                 return (React.createElement("div", null));
             }
         } else {
             return (
                 React.createElement("div", {className: "other-sources-view"}, 
-                React.createElement("div", null, lang.other_sources), 
-            React.createElement("span", null, lang.loading)
-            )
-        );
+                    React.createElement("div", null, lang.other_sources), 
+                    React.createElement("span", null, lang.loading)
+                )
+            );
         }
     }
 });
@@ -55597,16 +55643,17 @@ var RightColumnView = React.createClass({displayName: "RightColumnView",
     render: function () {
         return (
             React.createElement("div", {className: "right-column-view"}, 
-            React.createElement(MetadataView, {
-        contractApp: this.props.contractApp, 
-        metadata: this.props.metadata}), 
+                React.createElement(MetadataView, {
+                    contractApp: this.props.contractApp, 
+                    metadata: this.props.metadata}), 
 
-        React.createElement(RelatedDocumentsView, {
-        metadata: this.props.metadata})
-        )
+                React.createElement(RelatedDocumentsView, {
+                    metadata: this.props.metadata})
+            )
         );
     }
 });
+
 var NavigationView = React.createClass({displayName: "NavigationView",
     render: function () {
     var textClass =null;

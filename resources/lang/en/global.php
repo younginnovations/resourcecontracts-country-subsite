@@ -42,11 +42,11 @@ return [
     'a_directory_of'              => 'A directory of',
     'petroleum_mineral_contracts' => 'Petroleum &amp; Mineral Contracts',
     'page_doesnt_exist'           => "The page you’re looking for doesn't exist",
-    'if_you_are_looking'          => 'If you’re looking for contract documents, use the <span class="search-click">search box</span> above.',
+    'if_you_are_looking'          => 'If you’re looking for contract documents, use the <span class="search-click">search box</span> above.</p>',
     'temporarily_unavailable'     => ' is temporarily unavailable',
     'fix_message'                 => ' We are working to fix this. Please contact ',
     'if_problem_persists'         => ' if the problem persists.',
-    'apologize'                  => 'We apologize for any inconvenience.',
+    'apologize'                   => 'We apologize for any inconvenience.',
     'more'                        => 'More',
     'less'                        => 'Less',
     'prev'                        => 'Prev',
@@ -58,4 +58,9 @@ return [
     'close_annotations'           => 'Close Annotations',
     'note'                        => 'Note',
     'land_matrix_id'              => 'Land Matrix ID',
+    'is_pages_missing'            => 'Page(s) missing from document',
+    'is_annexes_missing'          => 'Annexe(s) missing from document',
+    'annotation'                  => 'Annotation',
+    'text'                        => 'Text',
+    'metadata'                    => 'Metadata'
 ];
