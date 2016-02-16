@@ -52,7 +52,7 @@
 
 .table > tbody > tr td:first-child, .table > thead > tr > th:first-child {
   padding: 8px 0 8px 32px;
-  min-width: 54px; }
+  min-width: 40px; }
 
 .navbar-brand {
   font-size: 19px;
@@ -424,6 +424,10 @@ a {
   background: no-repeat center/cover;
   margin: 0; }
 
+.homepage-wrapper {
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden; }
+
 .navbar-brand span {
   display: block;
   font-size: 13px;
@@ -431,9 +435,9 @@ a {
   color: rgba(64, 64, 64, 0.7); }
 
 .sidebar-brand {
-  background: rgba(57, 204, 203, 0.6) url(../images/ic-title-bg.png) no-repeat 0 0/cover !important;
+  background: rgba(0, 150, 224, 0.8) url(../images/ic-title-bg.jpg) no-repeat 0 0/cover !important;
   width: 280px;
-  height: 124px !important; }
+  height: 240px !important; }
   .sidebar-brand .beta {
     top: 35px;
     right: -60px; }
@@ -464,6 +468,9 @@ a {
   border-bottom: 1px solid rgba(242, 242, 242, 0.2);
   -webkit-box-shadow: none;
           box-shadow: none; }
+
+.sidebar-brand .navbar-brand:hover {
+  color: #fff !important; }
 
 .navbar-right {
   margin: 0;

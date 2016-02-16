@@ -2,11 +2,11 @@ a,.navbar-brand,
 .breadcrumb-wrapper ul li a,.download-csv a,
 .pagination > li > a,.navbar-brand span:first-of-type,
 .annotations-topic-list span  {
-  color: #17A9A8;
+  color: #0096E0;
 }
 
 .navbar-brand:hover {
-  color: #17A9A8!important;
+  color: #0096E0!important;
 }
 
 .btn-search,.btn-form-search, .btn-compare,
@@ -14,22 +14,22 @@ a,.navbar-brand,
 .pagination > .active > a,
 .pagination > .active > span,.back,.pdf-zoom-options span.scale-selected:before,
 .annotations-topic-list > .selected-topic,.action-links ul li a {
-  background-color: #17A9A8;
+  background-color: #0096E0;
 }
 
 .pagination > .active > a ,.pagination > .active > span,
 .btn-search, .download-csv {
-  border: 1px solid #0B9C9B;
+  border: 1px solid #00AAFF;
 }
 
 .search-results-list .close {
-  border-color: #0B9C9B;
+  border-color: #00AAFF!important;
 }
 
 #sidebar-wrapper {
-  background-image: -webkit-linear-gradient(351deg, #0D2424 1%, #206362 100%);
-  background-image: -o-linear-gradient(351deg, #0D2424 1%, #206362 100%);
-  background-image: linear-gradient(81deg, #0D2424 1%, #206362 100%);
+  background-image: -webkit-linear-gradient(-81deg, #001F2E 1%, #003D5C 100%);
+  background-image: -o-linear-gradient(-81deg, #001F2E 1%, #003D5C 100%);
+  background-image: linear-gradient(-81deg, #001F2E 1%, #003D5C 100%);
 }
 
 .sidebar-brand {
@@ -42,7 +42,7 @@ a:hover,a:focus,
 .pagination > li > a:focus,.pagination > li > a:hover,
 .pagination > li > span:focus,.pagination > li > span:hover,
 .search-result-row:hover  {
-  color: #0B9C9B;
+  color: #00AAFF;
 }
 
 .btn-search:hover,.btn-form-search:hover, .btn-search:focus,
@@ -52,16 +52,17 @@ a:hover,a:focus,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .action-links ul li a:hover,
 .contract-back:hover,.back:hover,.search-results-list .close:hover {
-  background-color: #0B9C9B;
+  background-color: #00AAFF;
   text-decoration: none;
 }
 
-a.view-annotation-cluster:hover,a.view-annotation-cluster.active {
-  background-color: #0B9C9B!important;
+a.view-annotation-cluster:hover,a.view-annotation-cluster.active,.search-results-list .close:hover {
+  background-color: #00AAFF!important;
 }
 
 .pagination > .active > a:focus,.pagination > .active > a:hover,
 .pagination > .active > span:focus,.pagination > .active > span:hover,
 .btn-search:hover, .btn-search:focus {
-  border: 1px solid #0B9C9B;
+  border: 1px solid #00AAFF;
 }
+
